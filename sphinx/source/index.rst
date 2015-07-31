@@ -1,17 +1,27 @@
-.. Logbook documentation master file, created by
-   sphinx-quickstart on Fri Jul 31 17:47:27 2015.
+.. Bitacora documentation master file, created by
+   sphinx-quickstart on Tue Jul 28 21:22:30 2015.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to Logbook's documentation!
-===================================
+Welcome to Bitacora's documentation!
+====================================
 
 Contents:
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
 
-
+   git
+   mercurial
+   docker
+   openstack
+   system
+   javascript
+   jquery
+   css
+   python
+   django
+   lpi
 
 Indices and tables
 ==================
