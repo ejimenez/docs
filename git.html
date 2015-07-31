@@ -1,0 +1,311 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>GIT RECIPES &mdash; documentación de Logbook - 0.1</title>
+    
+    <link rel="stylesheet" href="static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="static/jquery.js"></script>
+    <script type="text/javascript" src="static/underscore.js"></script>
+    <script type="text/javascript" src="static/doctools.js"></script>
+    <script type="text/javascript" src="static/translations.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="documentación de Logbook - 0.1" href="index.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="git-recipes">
+<h1>GIT RECIPES<a class="headerlink" href="#git-recipes" title="Enlazar permanentemente con este título">¶</a></h1>
+<p>Todas estas recetas están sacadas de <a class="reference external" href="http://git-scm.com/book/es">progit</a></p>
+<div class="section" id="conceptos-basicos">
+<h2>Conceptos básicos<a class="headerlink" href="#conceptos-basicos" title="Enlazar permanentemente con este título">¶</a></h2>
+<ul class="simple">
+<li>Git no guarda solo cambios, hace instantáneas de los ficheros en un momento dado (cuando se hace un commit)</li>
+<li>Las ramas en git son punteros a un commit determinado.</li>
+<li>HEAD es un puntero a la rama en la que actualmente te encuentras.</li>
+<li>origin: repositorio remoto original desde el que si hizo clone.</li>
+<li>master: es la rama local por defecto en los repositorios git.</li>
+</ul>
+</div>
+<div class="section" id="operaciones-basicas">
+<h2>Operaciones básicas<a class="headerlink" href="#operaciones-basicas" title="Enlazar permanentemente con este título">¶</a></h2>
+<ul class="simple">
+<li>Cuando añades un fichero y luego quieres revertirlo sin borrarlo de tu directorio:</li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre>git add fichero
+git rm --cached fichero
+</pre></div>
+</div>
+<ul class="simple">
+<li>Cuando has comiteado algo y se te ha olvidado comitear un archivo o quieres cambiar el mensaje de confirmación:</li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git commit -m <span class="s1">&#39;initial commit&#39;</span>
+<span class="nv">$ </span>git add forgotten_file
+<span class="nv">$ </span>git commit --amend
+</pre></div>
+</div>
+<p>La última linea sobrescribe el commit anterior.</p>
+<ul class="simple">
+<li>Deshacer los cambios preparados de un fichero:</li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git reset HEAD file
+</pre></div>
+</div>
+<ul class="simple">
+<li>Deshacer los cambios no preparados de un fichero:</li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre>git checkout -- file
+</pre></div>
+</div>
+</div>
+<div class="section" id="repositorios-remotos">
+<h2>Repositorios Remotos<a class="headerlink" href="#repositorios-remotos" title="Enlazar permanentemente con este título">¶</a></h2>
+<ul class="simple">
+<li>Añadir un repositorio remoto:</li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre>git remote add pb git://github.com/paulboone/ticgit.git
+</pre></div>
+</div>
+<ul class="simple">
+<li>Recibir datos de repositorios remotos:</li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git fetch <span class="o">[</span>remote-name<span class="o">]</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Recibir y unir de un repositorio remoto:</li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre>git pull
+</pre></div>
+</div>
+<ul class="simple">
+<li>Enviar tus cambios a un servidor remoto:</li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre>git push <span class="o">[</span>nombre-remoto<span class="o">][</span>nombre-rama<span class="o">]</span>
+<span class="nv">$ </span>git push origin master
+</pre></div>
+</div>
+</div>
+<div class="section" id="etiquetas">
+<h2>Etiquetas<a class="headerlink" href="#etiquetas" title="Enlazar permanentemente con este título">¶</a></h2>
+<ul class="simple">
+<li>Crear una etiqueta:</li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git tag -a v1.4 -m <span class="s1">&#39;my version 1.4&#39;</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Crear etiqueta de una versión anterior:</li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git tag -a v1.2 &lt;suma de comprobación&gt;
+</pre></div>
+</div>
+<ul class="simple">
+<li>Compartir etiquetas en otro repositorio:</li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre>git push origin <span class="o">[</span>tagname<span class="o">]</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>si quieres compartirlas todas:</li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre>git push origin <span class="o">[</span>tagname<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="ramas">
+<h2>Ramas<a class="headerlink" href="#ramas" title="Enlazar permanentemente con este título">¶</a></h2>
+<ul class="simple">
+<li>Crear una nueva rama</li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git branch &lt;branch_name&gt;
+</pre></div>
+</div>
+<ul class="simple">
+<li>Cambiar a una rama:</li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git checkout &lt;branch_name&gt;
+</pre></div>
+</div>
+<ul class="simple">
+<li>Crear una rama y cambiar automaticamente:</li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git checkout -b &lt;branch_name&gt;
+</pre></div>
+</div>
+<ul class="simple">
+<li>Mezclar dos ramas (master y hotfix):</li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre>git checkout master
+git merge hotfix
+</pre></div>
+</div>
+<ul class="simple">
+<li>Borrar una rama</li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git branch -d hotfix
+</pre></div>
+</div>
+<ul class="simple">
+<li>Listar todas las ramas:</li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre>git branch
+</pre></div>
+</div>
+<ul class="simple">
+<li>Ver los últimos cambios de todas las ramas:</li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre>git branch -v
+</pre></div>
+</div>
+<ul class="simple">
+<li>Ramas que hay mergeadas</li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre>git branch --merged
+</pre></div>
+</div>
+<ul class="simple">
+<li>Ramas que contienen trabajo pendiente de mergear:</li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre>git branch --no-merged
+</pre></div>
+</div>
+<ul class="simple">
+<li>Borrar una rama que contiene commits no mergeados:</li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre>git branch -D &lt;branch_name&gt;
+</pre></div>
+</div>
+<ul class="simple">
+<li>Sincronizar tu trabajo con la rama remota master del servidor original:</li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre>git fetch origin
+</pre></div>
+</div>
+<ul class="simple">
+<li>Publicar una rama local propia (ej serverfix), para que otros puedan trabajar en ella:</li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre>git push origin serverfix
+</pre></div>
+</div>
+<ul class="simple">
+<li>Pushear una rama local (serverfix) a una rama remota con nombre distinto (awesomebranch):</li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre>git push origin serverfix:awesomebranch
+</pre></div>
+</div>
+<ul class="simple">
+<li>Hacer traking branch para que los push y los pull vayan automáticamente a una rama remota determinada</li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre>git checkout -b <span class="o">[</span>branch<span class="o">]</span> <span class="o">[</span>remotename<span class="o">]</span>/<span class="o">[</span>branch<span class="o">]</span>
+</pre></div>
+</div>
+<p>Version git 1.6.2 o superior tiene un alias:</p>
+<div class="highlight-bash"><div class="highlight"><pre>git checkout --track origin/serverfix
+</pre></div>
+</div>
+<p>Hacer que tu rama local &#8220;sf&#8221; haga push y pull automáticamente a origin/serverfix</p>
+<div class="highlight-bash"><div class="highlight"><pre>git checkout -b sf origin/serverfix
+</pre></div>
+</div>
+<p>Borrar una rama remota &#8220;serverfix&#8221;:</p>
+<div class="highlight-bash"><div class="highlight"><pre>git push origin :serverfix
+</pre></div>
+</div>
+</div>
+<div class="section" id="pendiente-de-completar">
+<h2>Pendiente de completar<a class="headerlink" href="#pendiente-de-completar" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>A partir de <a class="reference external" href="http://progit.org/book/es/ch3-6.html">http://progit.org/book/es/ch3-6.html</a></p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Tabla de Contenidos</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">GIT RECIPES</a><ul>
+<li><a class="reference internal" href="#conceptos-basicos">Conceptos básicos</a></li>
+<li><a class="reference internal" href="#operaciones-basicas">Operaciones básicas</a></li>
+<li><a class="reference internal" href="#repositorios-remotos">Repositorios Remotos</a></li>
+<li><a class="reference internal" href="#etiquetas">Etiquetas</a></li>
+<li><a class="reference internal" href="#ramas">Ramas</a></li>
+<li><a class="reference internal" href="#pendiente-de-completar">Pendiente de completar</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>Esta página</h3>
+    <ul class="this-page-menu">
+      <li><a href="sources/git.txt"
+            rel="nofollow">Mostrar el código</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Búsqueda rápida</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Ir a" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Introduzca los términos de búsqueda o un nombre de módulo, clase o función.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Emilio Jiménez.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.6</a>
+      
+      |
+      <a href="sources/git.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
