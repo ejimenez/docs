@@ -14,12 +14,14 @@ Contents:
    git
    mercurial
    docker
+   openstack
    system
    javascript
    jquery
    css
    python
    django
+   lpi
 
 Indices and tables
 ==================
