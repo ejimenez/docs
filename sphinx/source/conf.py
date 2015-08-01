@@ -239,6 +239,9 @@ latex_elements = {
 latex_documents = [
   (master_doc, 'Logbook.tex', u'Logbook Documentation',
    u'Emilio Jiménez', 'manual'),
+#  ('git', 'git.tex', u'Git recipes',
+ #   u'Emilio Jiménez', 'git'),
+
 ]
 
 # The name of an image file (relative to this directory) to place at the top of

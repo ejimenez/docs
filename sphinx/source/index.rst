@@ -9,7 +9,7 @@ Welcome to Bitacora's documentation!
 Contents:
 
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 1
 
    git
    mercurial
