@@ -127,7 +127,7 @@ latexpdf:
 	@echo "Running LaTeX files through pdflatex..."
 	$(MAKE) -C $(PDFBUILDDIR)/latex all-pdf
 	cp $(PDFBUILDDIR)/latex/*.pdf $(PDF)
-	@echo "pdflatex finished; the PDF files are in $(BUILDDIR)/latex."
+	@echo "pdflatex finished; the PDF files are in $(PDFBUILDDIR)/latex."
 
 latexpdfja:
 	$(SPHINXBUILD) -b latex $(ALLSPHINXOPTS) $(BUILDDIR)/latex
@@ -193,3 +193,9 @@ pseudoxml:
 	$(SPHINXBUILD) -b pseudoxml $(ALLSPHINXOPTS) $(BUILDDIR)/pseudoxml
 	@echo
 	@echo "Build finished. The pseudo-XML files are in $(BUILDDIR)/pseudoxml."
+
+publish:
+	cd source ; git add . ; git commit -m "Add doc"; git push
+	cd $(BUILDDIR)/html ; git add . ; git commit -m "rebuilt docs"; git push origin gh-pages
+	@echo "Commited docs and html"
+
