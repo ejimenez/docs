@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Welcome to Bitacora’s documentation! &mdash; documentación de Logbook - 0.1</title>
+    <title>System recipes &mdash; documentación de Logbook - 0.1</title>
     
     <link rel="stylesheet" href="static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="static/pygments.css" type="text/css" />
@@ -25,8 +25,8 @@
     <script type="text/javascript" src="static/doctools.js"></script>
     <script type="text/javascript" src="static/translations.js"></script>
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="documentación de Logbook - 0.1" href="#" />
-    <link rel="next" title="GIT RECIPES" href="git.html" />
+    <link rel="top" title="documentación de Logbook - 0.1" href="index.html" />
+    <link rel="prev" title="GIT RECIPES" href="git.html" />
    
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
@@ -39,23 +39,25 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="welcome-to-bitacora-s-documentation">
-<h1>Welcome to Bitacora&#8217;s documentation!<a class="headerlink" href="#welcome-to-bitacora-s-documentation" title="Enlazar permanentemente con este título">¶</a></h1>
-<p>Contents:</p>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="git.html">GIT RECIPES</a></li>
-<li class="toctree-l1"><a class="reference internal" href="system.html">System recipes</a></li>
-</ul>
+  <div class="section" id="system-recipes">
+<h1>System recipes<a class="headerlink" href="#system-recipes" title="Enlazar permanentemente con este título">¶</a></h1>
+<div class="section" id="rsync">
+<h2>rsync<a class="headerlink" href="#rsync" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Sicronización con ancho de banda limitado, borrado en destino y reintentos automáticos en caso de fallo.</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="k">while</span> <span class="o">[</span> <span class="m">1</span> <span class="o">]</span>
+<span class="k">do</span>
+    rsync -avz --delete –bwlimit<span class="o">=</span><span class="m">256</span> carpeta/* &lt;usuario&gt;@&lt;maquina&gt;:/carpeta
+    <span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$?</span><span class="s2">&quot;</span> <span class="o">=</span> <span class="s2">&quot;0&quot;</span> <span class="o">]</span> <span class="p">;</span> <span class="k">then</span>
+        <span class="nb">echo</span> <span class="s2">&quot;rsync completed normally&quot;</span>
+        <span class="nb">exit</span>
+<span class="nb">    </span><span class="k">else</span>
+        <span class="nb">echo</span> <span class="s2">&quot;Rsync failure. Backing off and retrying...&quot;</span>
+        sleep 180
+    <span class="k">fi</span>
+<span class="k">done</span>
+</pre></div>
 </div>
 </div>
-<div class="section" id="indices-and-tables">
-<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Enlazar permanentemente con este título">¶</a></h1>
-<ul class="simple">
-<li><a class="reference internal" href="genindex.html"><span>Índice</span></a></li>
-<li><a class="reference internal" href="py-modindex.html"><span>Índice de Módulos</span></a></li>
-<li><a class="reference internal" href="search.html"><span>Página de Búsqueda</span></a></li>
-</ul>
 </div>
 
 
@@ -64,23 +66,25 @@
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="#">Tabla de Contenidos</a></h3>
+  <h3><a href="index.html">Tabla de Contenidos</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Welcome to Bitacora&#8217;s documentation!</a></li>
-<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+<li><a class="reference internal" href="#">System recipes</a><ul>
+<li><a class="reference internal" href="#rsync">rsync</a></li>
+</ul>
+</li>
 </ul>
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
-  <li><a href="#">Documentation overview</a><ul>
-      <li>Next: <a href="git.html" title="próximo capítulo">GIT RECIPES</a></li>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="git.html" title="capítulo anterior">GIT RECIPES</a></li>
   </ul></li>
 </ul>
 </div>
   <div role="note" aria-label="source link">
     <h3>Esta página</h3>
     <ul class="this-page-menu">
-      <li><a href="sources/index.txt"
+      <li><a href="sources/system.txt"
             rel="nofollow">Mostrar el código</a></li>
     </ul>
    </div>
@@ -109,7 +113,7 @@
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.6</a>
       
       |
-      <a href="sources/index.txt"
+      <a href="sources/system.txt"
           rel="nofollow">Page source</a>
     </div>
 

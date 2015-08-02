@@ -12,10 +12,10 @@ Contents:
    :maxdepth: 1
 
    git
+   system
    mercurial
    docker
    openstack
-   system
    javascript
    jquery
    css
