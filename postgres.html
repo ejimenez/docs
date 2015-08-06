@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Welcome to Bitacora’s documentation! &mdash; documentación de Logbook - 0.1</title>
+    <title>postgres &mdash; documentación de Logbook - 0.1</title>
     
     <link rel="stylesheet" href="static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="static/pygments.css" type="text/css" />
@@ -25,8 +25,8 @@
     <script type="text/javascript" src="static/doctools.js"></script>
     <script type="text/javascript" src="static/translations.js"></script>
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="documentación de Logbook - 0.1" href="#" />
-    <link rel="next" title="GIT RECIPES" href="git.html" />
+    <link rel="top" title="documentación de Logbook - 0.1" href="index.html" />
+    <link rel="prev" title="System recipes" href="system.html" />
    
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
@@ -39,24 +39,15 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="welcome-to-bitacora-s-documentation">
-<h1>Welcome to Bitacora&#8217;s documentation!<a class="headerlink" href="#welcome-to-bitacora-s-documentation" title="Enlazar permanentemente con este título">¶</a></h1>
-<p>Contents:</p>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="git.html">GIT RECIPES</a></li>
-<li class="toctree-l1"><a class="reference internal" href="system.html">System recipes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="postgres.html">postgres</a></li>
-</ul>
+  <div class="section" id="postgres">
+<h1>postgres<a class="headerlink" href="#postgres" title="Enlazar permanentemente con este título">¶</a></h1>
+<div class="section" id="create-and-restore-a-compresed-backup">
+<h2>Create and restore a compresed backup<a class="headerlink" href="#create-and-restore-a-compresed-backup" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="highlight-bash"><div class="highlight"><pre>pg_dump dbname <span class="p">|</span> gzip &gt; filename.gz
+gunzip -c filename.gz <span class="p">|</span> psql dbname
+</pre></div>
 </div>
 </div>
-<div class="section" id="indices-and-tables">
-<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Enlazar permanentemente con este título">¶</a></h1>
-<ul class="simple">
-<li><a class="reference internal" href="genindex.html"><span>Índice</span></a></li>
-<li><a class="reference internal" href="py-modindex.html"><span>Índice de Módulos</span></a></li>
-<li><a class="reference internal" href="search.html"><span>Página de Búsqueda</span></a></li>
-</ul>
 </div>
 
 
@@ -65,23 +56,25 @@
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="#">Tabla de Contenidos</a></h3>
+  <h3><a href="index.html">Tabla de Contenidos</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Welcome to Bitacora&#8217;s documentation!</a></li>
-<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+<li><a class="reference internal" href="#">postgres</a><ul>
+<li><a class="reference internal" href="#create-and-restore-a-compresed-backup">Create and restore a compresed backup</a></li>
+</ul>
+</li>
 </ul>
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
-  <li><a href="#">Documentation overview</a><ul>
-      <li>Next: <a href="git.html" title="próximo capítulo">GIT RECIPES</a></li>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="system.html" title="capítulo anterior">System recipes</a></li>
   </ul></li>
 </ul>
 </div>
   <div role="note" aria-label="source link">
     <h3>Esta página</h3>
     <ul class="this-page-menu">
-      <li><a href="sources/index.txt"
+      <li><a href="sources/postgres.txt"
             rel="nofollow">Mostrar el código</a></li>
     </ul>
    </div>
@@ -110,7 +103,7 @@
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.6</a>
       
       |
-      <a href="sources/index.txt"
+      <a href="sources/postgres.txt"
           rel="nofollow">Page source</a>
     </div>
 

@@ -13,6 +13,7 @@ Contents:
 
    git
    system
+   postgres
    mercurial
    docker
    openstack
