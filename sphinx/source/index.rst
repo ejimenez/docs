@@ -23,6 +23,7 @@ Contents:
    python
    django
    lpi
+   buildout
 
 Indices and tables
 ==================
