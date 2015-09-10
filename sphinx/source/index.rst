@@ -12,6 +12,8 @@ Contents:
    :maxdepth: 1
 
    git
+   mercurial
+   subversion
    system
    postgres
    mercurial
