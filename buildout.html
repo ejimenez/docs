@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Systems &mdash; documentación de Logbook - 0.1</title>
+    <title>buildout &mdash; documentación de Logbook - 0.1</title>
     
     <link rel="stylesheet" href="static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="static/pygments.css" type="text/css" />
@@ -26,8 +26,8 @@
     <script type="text/javascript" src="static/translations.js"></script>
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="top" title="documentación de Logbook - 0.1" href="index.html" />
-    <link rel="next" title="postgres" href="postgres.html" />
-    <link rel="prev" title="GIT RECIPES" href="git.html" />
+    <link rel="next" title="Inglés" href="english.html" />
+    <link rel="prev" title="postgres" href="postgres.html" />
    
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
@@ -40,22 +40,17 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="systems">
-<h1>Systems<a class="headerlink" href="#systems" title="Enlazar permanentemente con este título">¶</a></h1>
-<div class="section" id="rsync">
-<h2>rsync<a class="headerlink" href="#rsync" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>Sicronización con ancho de banda limitado, borrado en destino y reintentos automáticos en caso de fallo.</p>
-<div class="highlight-bash"><div class="highlight"><pre><span class="k">while</span> <span class="o">[</span> <span class="m">1</span> <span class="o">]</span>
-<span class="k">do</span>
-    rsync -avz --delete –bwlimit<span class="o">=</span><span class="m">256</span> carpeta/* &lt;usuario&gt;@&lt;maquina&gt;:/carpeta
-    <span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$?</span><span class="s2">&quot;</span> <span class="o">=</span> <span class="s2">&quot;0&quot;</span> <span class="o">]</span> <span class="p">;</span> <span class="k">then</span>
-        <span class="nb">echo</span> <span class="s2">&quot;rsync completed normally&quot;</span>
-        <span class="nb">exit</span>
-<span class="nb">    </span><span class="k">else</span>
-        <span class="nb">echo</span> <span class="s2">&quot;Rsync failure. Backing off and retrying...&quot;</span>
-        sleep 180
-    <span class="k">fi</span>
-<span class="k">done</span>
+  <div class="section" id="buildout">
+<h1>buildout<a class="headerlink" href="#buildout" title="Enlazar permanentemente con este título">¶</a></h1>
+<div class="section" id="excute-bootstrap-py-for-a-specific-version">
+<h2>Excute bootstrap.py for a specific version<a class="headerlink" href="#excute-bootstrap-py-for-a-specific-version" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="highlight-bash"><div class="highlight"><pre>python bootstrap.py --version<span class="o">=</span>2.1.0 --setuptools-version<span class="o">=</span>5.4.1
+</pre></div>
+</div>
+</div>
+<div class="section" id="change-table-owner">
+<h2>Change table owner<a class="headerlink" href="#change-table-owner" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="highlight-bash"><div class="highlight"><pre>ALTER TABLE tablax OWNER TO usuario_nuevo<span class="p">;</span>
 </pre></div>
 </div>
 </div>
@@ -69,8 +64,9 @@
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Tabla de Contenidos</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Systems</a><ul>
-<li><a class="reference internal" href="#rsync">rsync</a></li>
+<li><a class="reference internal" href="#">buildout</a><ul>
+<li><a class="reference internal" href="#excute-bootstrap-py-for-a-specific-version">Excute bootstrap.py for a specific version</a></li>
+<li><a class="reference internal" href="#change-table-owner">Change table owner</a></li>
 </ul>
 </li>
 </ul>
@@ -78,15 +74,15 @@
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="git.html" title="capítulo anterior">GIT RECIPES</a></li>
-      <li>Next: <a href="postgres.html" title="próximo capítulo">postgres</a></li>
+      <li>Previous: <a href="postgres.html" title="capítulo anterior">postgres</a></li>
+      <li>Next: <a href="english.html" title="próximo capítulo">Inglés</a></li>
   </ul></li>
 </ul>
 </div>
   <div role="note" aria-label="source link">
     <h3>Esta página</h3>
     <ul class="this-page-menu">
-      <li><a href="sources/system.txt"
+      <li><a href="sources/buildout.txt"
             rel="nofollow">Mostrar el código</a></li>
     </ul>
    </div>
@@ -115,7 +111,7 @@
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.6</a>
       
       |
-      <a href="sources/system.txt"
+      <a href="sources/buildout.txt"
           rel="nofollow">Page source</a>
     </div>
 

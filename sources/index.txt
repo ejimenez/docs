@@ -12,6 +12,8 @@ Contents:
    :maxdepth: 1
 
    git
+   mercurial
+   subversion
    system
    postgres
    mercurial
@@ -23,6 +25,8 @@ Contents:
    python
    django
    lpi
+   buildout
+   english
 
 Indices and tables
 ==================
