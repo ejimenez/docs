@@ -26,6 +26,7 @@ Contents:
    django
    lpi
    buildout
+   english
 
 Indices and tables
 ==================
