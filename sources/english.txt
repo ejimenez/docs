@@ -612,6 +612,23 @@ libro 24
 
 tres formas de futuro: will, presente contínuo (solo algunos verbos), going to
 
+I'll bring a cake
+What are you doing tomorrow morning?
+I'm going to barcelona tomorrow
+
+won't --> uount
+want --> uont
+walk --> uork
+work --> uerk
+I'll --> ail
+Will it --> uilit
+
+carry -- llevar algo en brazos
+take -- llevar, opuesto de traer (bring)
+
+Barry isn't taking his girlfriend to the party tonight?
+Is John bringing  wine to the meal tonight?
+
 libro 25
 --------
 
