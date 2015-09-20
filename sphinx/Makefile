@@ -195,7 +195,7 @@ pseudoxml:
 	@echo "Build finished. The pseudo-XML files are in $(BUILDDIR)/pseudoxml."
 
 publish:
-	cd source ; git add . ; git commit -m "Add doc"; git push
-	cd $(BUILDDIR)/html ; git add . ; git commit -m "rebuilt docs"; git push origin gh-pages
+	cd source ; git pull origin master ; git add . ; git commit -m "Add doc"; git push origin master
+	cd $(BUILDDIR)/html ; git pull origin gh-pages ; git add . ; git commit -m "rebuilt docs"; git push origin gh-pages
 	@echo "Commited docs and html"
 
