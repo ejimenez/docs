@@ -1,6 +1,6 @@
-###########
-GIT RECIPES
-###########
+###
+Git
+###
 
 Todas estas recetas están sacadas de `progit <http://git-scm.com/book/es>`_
 
