@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Systems &mdash; documentación de Logbook - 0.1</title>
+    <title>Sistemas &mdash; documentación de Logbook - 0.1</title>
     
     <link rel="stylesheet" href="static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="static/pygments.css" type="text/css" />
@@ -26,7 +26,7 @@
     <script type="text/javascript" src="static/translations.js"></script>
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="top" title="documentación de Logbook - 0.1" href="index.html" />
-    <link rel="next" title="postgres" href="postgres.html" />
+    <link rel="next" title="Screen" href="screen.html" />
     <link rel="prev" title="Subversion" href="subversion.html" />
    
   
@@ -40,8 +40,8 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="systems">
-<h1>Systems<a class="headerlink" href="#systems" title="Enlazar permanentemente con este título">¶</a></h1>
+  <div class="section" id="sistemas">
+<h1>Sistemas<a class="headerlink" href="#sistemas" title="Enlazar permanentemente con este título">¶</a></h1>
 <div class="section" id="rsync">
 <h2>rsync<a class="headerlink" href="#rsync" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Sicronización con ancho de banda limitado, borrado en destino y reintentos automáticos en caso de fallo.</p>
@@ -59,6 +59,113 @@
 </pre></div>
 </div>
 </div>
+<div class="section" id="procesos">
+<h2>Procesos<a class="headerlink" href="#procesos" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="section" id="dejar-proceso-en-una-shell-remota-con-disown">
+<h3>Dejar proceso en una shell remota con disown<a class="headerlink" href="#dejar-proceso-en-una-shell-remota-con-disown" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Una vez hayamos ejecutado el comando realizar los siguientes pasos:</p>
+<div class="highlight-bash"><div class="highlight"><pre>control + z
+<span class="nb">bg </span><span class="m">1</span> <span class="c"># suponiendo que tenemos el trabajo en %1</span>
+<span class="nb">disown</span> -h %1
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="certificados">
+<h2>Certificados<a class="headerlink" href="#certificados" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="section" id="obtener-informacion-entre-ellos-el-alias-de-un-certificado">
+<h3>Obtener información (entre ellos el alias) de un certificado:<a class="headerlink" href="#obtener-informacion-entre-ellos-el-alias-de-un-certificado" title="Enlazar permanentemente con este título">¶</a></h3>
+<div class="highlight-bash"><div class="highlight"><pre>keytool --list -v -keystore almacendeclaves.p12 -storetype PKCS12
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="comando-find">
+<h2>Comando find<a class="headerlink" href="#comando-find" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="section" id="listado-de-fichero-modificados-hace-menos-de-un-minuto-terminados-en-log">
+<h3>Listado de fichero modificados hace menos de un minuto terminados en .log<a class="headerlink" href="#listado-de-fichero-modificados-hace-menos-de-un-minuto-terminados-en-log" title="Enlazar permanentemente con este título">¶</a></h3>
+<div class="highlight-bash"><div class="highlight"><pre>find . -type f -cmin <span class="m">1</span> -name <span class="s2">&quot;*.log&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="comando-ssh">
+<h2>Comando ssh<a class="headerlink" href="#comando-ssh" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="section" id="acceso-ssh-sin-contrasena">
+<h3>Acceso ssh sin contraseña<a class="headerlink" href="#acceso-ssh-sin-contrasena" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Generar clave pública (sin contraseña):</p>
+<div class="highlight-bash"><div class="highlight"><pre>ssh-keygen -t rsa
+</pre></div>
+</div>
+<p>Copias la clave pública al servidor donde queremos conectar:</p>
+<div class="highlight-bash"><div class="highlight"><pre>ssh-copy-id -i ~/.ssh/id_rsa.pub usuario@servidor
+</pre></div>
+</div>
+<p>Para Entrar en el portal beta de uma al servidor</p>
+<div class="highlight-bash"><div class="highlight"><pre>ssh usuario@servidor
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="usuarios">
+<h2>Usuarios<a class="headerlink" href="#usuarios" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="section" id="crear-usuario">
+<h3>Crear usuario<a class="headerlink" href="#crear-usuario" title="Enlazar permanentemente con este título">¶</a></h3>
+<div class="highlight-bash"><div class="highlight"><pre>useradd -m -s /bin/bash -d /home/&lt;username&gt; &lt;username&gt;
+</pre></div>
+</div>
+<p>Añadir a sudo:
+sudo usermod -aG sudo &lt;username&gt;</p>
+</div>
+<div class="section" id="anadir-usuario-a-grupo-sudo">
+<h3>Añadir usuario a grupo sudo<a class="headerlink" href="#anadir-usuario-a-grupo-sudo" title="Enlazar permanentemente con este título">¶</a></h3>
+<div class="highlight-bash"><div class="highlight"><pre>sudo usermod -aG sudo &lt;username&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="seguridad">
+<h2>Seguridad<a class="headerlink" href="#seguridad" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="section" id="generar-clave">
+<h3>Generar clave<a class="headerlink" href="#generar-clave" title="Enlazar permanentemente con este título">¶</a></h3>
+<div class="highlight-bash"><div class="highlight"><pre>date <span class="p">|</span> md5sum
+</pre></div>
+</div>
+</div>
+<div class="section" id="encriptar-un-fichero">
+<h3>Encriptar un fichero<a class="headerlink" href="#encriptar-un-fichero" title="Enlazar permanentemente con este título">¶</a></h3>
+<div class="highlight-bash"><div class="highlight"><pre>gpg -c filename.txt
+</pre></div>
+</div>
+</div>
+<div class="section" id="desencriptar-un-fichero">
+<h3>Desencriptar un fichero<a class="headerlink" href="#desencriptar-un-fichero" title="Enlazar permanentemente con este título">¶</a></h3>
+<div class="highlight-bash"><div class="highlight"><pre>gpg filename.txt.gpg
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="comando-sshfs">
+<h2>Comando sshfs<a class="headerlink" href="#comando-sshfs" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="section" id="montar-carpeta-remota">
+<h3>Montar carpeta remota<a class="headerlink" href="#montar-carpeta-remota" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Recursos:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://www.digitalocean.com/community/tutorials/how-to-use-sshfs-to-mount-remote-file-systems-over-ssh">https://www.digitalocean.com/community/tutorials/how-to-use-sshfs-to-mount-remote-file-systems-over-ssh</a></li>
+<li><a class="reference external" href="http://albertomoralescruz.blogspot.com.es/2011/05/montando-unidades-mediante-sshfs-en-el.html">http://albertomoralescruz.blogspot.com.es/2011/05/montando-unidades-mediante-sshfs-en-el.html</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="ficheros">
+<h2>Ficheros<a class="headerlink" href="#ficheros" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="section" id="aplicar-parches">
+<h3>Aplicar parches<a class="headerlink" href="#aplicar-parches" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Dentro del directorio donde estan contenidos los ficheros a parchear:</p>
+<div class="highlight-bash"><div class="highlight"><pre>patch -p1 &lt; parche.patch
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 
 
@@ -69,8 +176,43 @@
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Tabla de Contenidos</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Systems</a><ul>
+<li><a class="reference internal" href="#">Sistemas</a><ul>
 <li><a class="reference internal" href="#rsync">rsync</a></li>
+<li><a class="reference internal" href="#procesos">Procesos</a><ul>
+<li><a class="reference internal" href="#dejar-proceso-en-una-shell-remota-con-disown">Dejar proceso en una shell remota con disown</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#certificados">Certificados</a><ul>
+<li><a class="reference internal" href="#obtener-informacion-entre-ellos-el-alias-de-un-certificado">Obtener información (entre ellos el alias) de un certificado:</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#comando-find">Comando find</a><ul>
+<li><a class="reference internal" href="#listado-de-fichero-modificados-hace-menos-de-un-minuto-terminados-en-log">Listado de fichero modificados hace menos de un minuto terminados en .log</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#comando-ssh">Comando ssh</a><ul>
+<li><a class="reference internal" href="#acceso-ssh-sin-contrasena">Acceso ssh sin contraseña</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#usuarios">Usuarios</a><ul>
+<li><a class="reference internal" href="#crear-usuario">Crear usuario</a></li>
+<li><a class="reference internal" href="#anadir-usuario-a-grupo-sudo">Añadir usuario a grupo sudo</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#seguridad">Seguridad</a><ul>
+<li><a class="reference internal" href="#generar-clave">Generar clave</a></li>
+<li><a class="reference internal" href="#encriptar-un-fichero">Encriptar un fichero</a></li>
+<li><a class="reference internal" href="#desencriptar-un-fichero">Desencriptar un fichero</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#comando-sshfs">Comando sshfs</a><ul>
+<li><a class="reference internal" href="#montar-carpeta-remota">Montar carpeta remota</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ficheros">Ficheros</a><ul>
+<li><a class="reference internal" href="#aplicar-parches">Aplicar parches</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -79,7 +221,7 @@
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
       <li>Previous: <a href="subversion.html" title="capítulo anterior">Subversion</a></li>
-      <li>Next: <a href="postgres.html" title="próximo capítulo">postgres</a></li>
+      <li>Next: <a href="screen.html" title="próximo capítulo">Screen</a></li>
   </ul></li>
 </ul>
 </div>

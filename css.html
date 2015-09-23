@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>postgres &mdash; documentación de Logbook - 0.1</title>
+    <title>CSS &mdash; documentación de Logbook - 0.1</title>
     
     <link rel="stylesheet" href="static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="static/pygments.css" type="text/css" />
@@ -26,8 +26,8 @@
     <script type="text/javascript" src="static/translations.js"></script>
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="top" title="documentación de Logbook - 0.1" href="index.html" />
-    <link rel="next" title="Systems" href="java.html" />
-    <link rel="prev" title="Screen" href="screen.html" />
+    <link rel="next" title="Python" href="python.html" />
+    <link rel="prev" title="postgres" href="postgres.html" />
    
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
@@ -40,25 +40,29 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="postgres">
-<h1>postgres<a class="headerlink" href="#postgres" title="Enlazar permanentemente con este título">¶</a></h1>
-<div class="section" id="create-and-restore-a-compresed-backup">
-<h2>Create and restore a compresed backup<a class="headerlink" href="#create-and-restore-a-compresed-backup" title="Enlazar permanentemente con este título">¶</a></h2>
-<div class="highlight-bash"><div class="highlight"><pre>pg_dump dbname <span class="p">|</span> gzip &gt; filename.gz
-gunzip -c filename.gz <span class="p">|</span> psql dbname
+  <div class="section" id="css">
+<h1>CSS<a class="headerlink" href="#css" title="Enlazar permanentemente con este título">¶</a></h1>
+<div class="section" id="framework-compass">
+<h2>Framework compass<a class="headerlink" href="#framework-compass" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="section" id="instalacion">
+<h3>Instalación<a class="headerlink" href="#instalacion" title="Enlazar permanentemente con este título">¶</a></h3>
+<div class="highlight-bash"><div class="highlight"><pre>sudo apt-get install rubygems
+gem install compass
+gem install sass
 </pre></div>
 </div>
 </div>
-<div class="section" id="change-table-owner">
-<h2>Change table owner<a class="headerlink" href="#change-table-owner" title="Enlazar permanentemente con este título">¶</a></h2>
-<div class="highlight-bash"><div class="highlight"><pre>ALTER TABLE tablax OWNER TO usuario_nuevo<span class="p">;</span>
+<div class="section" id="compilar-un-fichero">
+<h3>Compilar un fichero<a class="headerlink" href="#compilar-un-fichero" title="Enlazar permanentemente con este título">¶</a></h3>
+<div class="highlight-bash"><div class="highlight"><pre>compass compile scss/srceen.scss
 </pre></div>
 </div>
 </div>
-<div class="section" id="delete-cascade">
-<h2>Delete cascade<a class="headerlink" href="#delete-cascade" title="Enlazar permanentemente con este título">¶</a></h2>
-<div class="highlight-bash"><div class="highlight"><pre>TRUNCATE table CASCADE<span class="p">;</span>
+<div class="section" id="para-compilar-en-funcion-de-los-cambios-que-se-realicen-en-un-directorio">
+<h3>Para compilar en función de los cambios que se realicen en un directorio<a class="headerlink" href="#para-compilar-en-funcion-de-los-cambios-que-se-realicen-en-un-directorio" title="Enlazar permanentemente con este título">¶</a></h3>
+<div class="highlight-bash"><div class="highlight"><pre>compass watch
 </pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -71,10 +75,13 @@ gunzip -c filename.gz <span class="p">|</span> psql dbname
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Tabla de Contenidos</a></h3>
   <ul>
-<li><a class="reference internal" href="#">postgres</a><ul>
-<li><a class="reference internal" href="#create-and-restore-a-compresed-backup">Create and restore a compresed backup</a></li>
-<li><a class="reference internal" href="#change-table-owner">Change table owner</a></li>
-<li><a class="reference internal" href="#delete-cascade">Delete cascade</a></li>
+<li><a class="reference internal" href="#">CSS</a><ul>
+<li><a class="reference internal" href="#framework-compass">Framework compass</a><ul>
+<li><a class="reference internal" href="#instalacion">Instalación</a></li>
+<li><a class="reference internal" href="#compilar-un-fichero">Compilar un fichero</a></li>
+<li><a class="reference internal" href="#para-compilar-en-funcion-de-los-cambios-que-se-realicen-en-un-directorio">Para compilar en función de los cambios que se realicen en un directorio</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -82,15 +89,15 @@ gunzip -c filename.gz <span class="p">|</span> psql dbname
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="screen.html" title="capítulo anterior">Screen</a></li>
-      <li>Next: <a href="java.html" title="próximo capítulo">Systems</a></li>
+      <li>Previous: <a href="postgres.html" title="capítulo anterior">postgres</a></li>
+      <li>Next: <a href="python.html" title="próximo capítulo">Python</a></li>
   </ul></li>
 </ul>
 </div>
   <div role="note" aria-label="source link">
     <h3>Esta página</h3>
     <ul class="this-page-menu">
-      <li><a href="sources/postgres.txt"
+      <li><a href="sources/css.txt"
             rel="nofollow">Mostrar el código</a></li>
     </ul>
    </div>
@@ -119,7 +126,7 @@ gunzip -c filename.gz <span class="p">|</span> psql dbname
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.6</a>
       
       |
-      <a href="sources/postgres.txt"
+      <a href="sources/css.txt"
           rel="nofollow">Page source</a>
     </div>
 

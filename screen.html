@@ -1,0 +1,149 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Screen &mdash; documentación de Logbook - 0.1</title>
+    
+    <link rel="stylesheet" href="static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="static/jquery.js"></script>
+    <script type="text/javascript" src="static/underscore.js"></script>
+    <script type="text/javascript" src="static/doctools.js"></script>
+    <script type="text/javascript" src="static/translations.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="documentación de Logbook - 0.1" href="index.html" />
+    <link rel="next" title="postgres" href="postgres.html" />
+    <link rel="prev" title="Systems" href="system.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="screen">
+<h1>Screen<a class="headerlink" href="#screen" title="Enlazar permanentemente con este título">¶</a></h1>
+<div class="section" id="dejar-un-comando-ejecutandose-en-una-shell-remota">
+<h2>Dejar un comando ejecutándose en una shell remota<a class="headerlink" href="#dejar-un-comando-ejecutandose-en-una-shell-remota" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Al ejecutar screen por primera vez, se nos abre una shell. Ejecutamos el comando que queramos dejar andando hasta que termine. Y pulsamos Ctrl + A + D. Con eso, nos &#8220;desconectamos&#8221; de esa shell, ya podemos cerrar la ventana con toda la tranquilidad del mundo. Nuestro comando sigue ejecutandose en su propia shell. Posteriormente, en cualquier momento, podemos &#8220;conectarnos&#8221; a esa shell para ver como va nuestro comando, para ello ejecutamos screen -r</p>
+</div>
+<div class="section" id="mas-utilidades">
+<h2>Más utilidades:<a class="headerlink" href="#mas-utilidades" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Algunas cosas más sobre screen:</p>
+<ul class="simple">
+<li>Ayuda: Ctrl + a + ?</li>
+<li>Abre una ventana nueva: Ctrl + a + c</li>
+<li>Cambia el título de una ventana: Ctrl + a + shift + a</li>
+<li>Salir de una ventana: Ctrl + d</li>
+<li>Lista las ventanas en la sesión: Ctrl + a + &#8220;</li>
+<li>Cambiar de una ventana a otra: Ctrl + a + a</li>
+<li>Salir sin destruir CTRL + a d.</li>
+<li>Salir destruyendo la sesión: CTRL + a k</li>
+<li>Listar sesiones: screen -ls</li>
+</ul>
+</div>
+<div class="section" id="compatir-una-sesion-de-screen-con-otro-usuario">
+<h2>Compatir una sesíón de screen con otro usuario:<a class="headerlink" href="#compatir-una-sesion-de-screen-con-otro-usuario" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="section" id="arracar-la-sesion">
+<h3>Arracar la sesión<a class="headerlink" href="#arracar-la-sesion" title="Enlazar permanentemente con este título">¶</a></h3>
+<div class="highlight-bash"><div class="highlight"><pre>screen -d -m -S mySharedSession
+</pre></div>
+</div>
+</div>
+<div class="section" id="otro-usuario-puede-interactuar-en-la-sesion-abierta">
+<h3>Otro usuario puede interactuar en la sesión abierta:<a class="headerlink" href="#otro-usuario-puede-interactuar-en-la-sesion-abierta" title="Enlazar permanentemente con este título">¶</a></h3>
+<div class="highlight-bash"><div class="highlight"><pre>screen -x mySharedSession
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Tabla de Contenidos</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Screen</a><ul>
+<li><a class="reference internal" href="#dejar-un-comando-ejecutandose-en-una-shell-remota">Dejar un comando ejecutándose en una shell remota</a></li>
+<li><a class="reference internal" href="#mas-utilidades">Más utilidades:</a></li>
+<li><a class="reference internal" href="#compatir-una-sesion-de-screen-con-otro-usuario">Compatir una sesíón de screen con otro usuario:</a><ul>
+<li><a class="reference internal" href="#arracar-la-sesion">Arracar la sesión</a></li>
+<li><a class="reference internal" href="#otro-usuario-puede-interactuar-en-la-sesion-abierta">Otro usuario puede interactuar en la sesión abierta:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="system.html" title="capítulo anterior">Systems</a></li>
+      <li>Next: <a href="postgres.html" title="próximo capítulo">postgres</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>Esta página</h3>
+    <ul class="this-page-menu">
+      <li><a href="sources/screen.txt"
+            rel="nofollow">Mostrar el código</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Búsqueda rápida</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Ir a" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Introduzca los términos de búsqueda o un nombre de módulo, clase o función.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Emilio Jiménez.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.6</a>
+      
+      |
+      <a href="sources/screen.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

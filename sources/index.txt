@@ -15,6 +15,8 @@ Contents:
    mercurial
    subversion
    system
+   screen
+   vim
    postgres
    mercurial
    docker
@@ -23,6 +25,7 @@ Contents:
    jquery
    css
    python
+   java
    django
    lpi
    buildout

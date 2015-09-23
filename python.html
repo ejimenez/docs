@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>postgres &mdash; documentación de Logbook - 0.1</title>
+    <title>Python &mdash; documentación de Logbook - 0.1</title>
     
     <link rel="stylesheet" href="static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="static/pygments.css" type="text/css" />
@@ -26,8 +26,8 @@
     <script type="text/javascript" src="static/translations.js"></script>
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="top" title="documentación de Logbook - 0.1" href="index.html" />
-    <link rel="next" title="Systems" href="java.html" />
-    <link rel="prev" title="Screen" href="screen.html" />
+    <link rel="next" title="Java" href="java.html" />
+    <link rel="prev" title="postgres" href="postgres.html" />
    
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
@@ -40,25 +40,26 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="postgres">
-<h1>postgres<a class="headerlink" href="#postgres" title="Enlazar permanentemente con este título">¶</a></h1>
-<div class="section" id="create-and-restore-a-compresed-backup">
-<h2>Create and restore a compresed backup<a class="headerlink" href="#create-and-restore-a-compresed-backup" title="Enlazar permanentemente con este título">¶</a></h2>
-<div class="highlight-bash"><div class="highlight"><pre>pg_dump dbname <span class="p">|</span> gzip &gt; filename.gz
-gunzip -c filename.gz <span class="p">|</span> psql dbname
+  <div class="section" id="python">
+<h1>Python<a class="headerlink" href="#python" title="Enlazar permanentemente con este título">¶</a></h1>
+<div class="section" id="fechas">
+<h2>Fechas<a class="headerlink" href="#fechas" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="section" id="formatos-de-fechas-en-distintos-idiomas">
+<h3>Formatos de fechas en distintos idiomas:<a class="headerlink" href="#formatos-de-fechas-en-distintos-idiomas" title="Enlazar permanentemente con este título">¶</a></h3>
+<div class="highlight-bash"><div class="highlight"><pre>sudo locale-gen es_ES.UTF-8
 </pre></div>
 </div>
-</div>
-<div class="section" id="change-table-owner">
-<h2>Change table owner<a class="headerlink" href="#change-table-owner" title="Enlazar permanentemente con este título">¶</a></h2>
-<div class="highlight-bash"><div class="highlight"><pre>ALTER TABLE tablax OWNER TO usuario_nuevo<span class="p">;</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">time</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s">&quot;%a, </span><span class="si">%d</span><span class="s"> %b %Y %H:%M:%S&quot;</span><span class="p">)</span>
+<span class="go">Sun, 23 Oct 2005 20:38:56</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">locale</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">locale</span><span class="o">.</span><span class="n">setlocale</span><span class="p">(</span><span class="n">locale</span><span class="o">.</span><span class="n">LC_TIME</span><span class="p">,</span> <span class="s">&quot;sv_SE&quot;</span><span class="p">)</span> <span class="c"># swedish</span>
+<span class="go">&#39;sv_SE&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="k">print</span> <span class="n">time</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s">&quot;%a, </span><span class="si">%d</span><span class="s"> %b %Y %H:%M:%S&quot;</span><span class="p">)</span>
+<span class="go">sön, 23 okt 2005 20:39:15</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="delete-cascade">
-<h2>Delete cascade<a class="headerlink" href="#delete-cascade" title="Enlazar permanentemente con este título">¶</a></h2>
-<div class="highlight-bash"><div class="highlight"><pre>TRUNCATE table CASCADE<span class="p">;</span>
-</pre></div>
+<p>Fuente: <a class="reference external" href="http://stackoverflow.com/questions/985505/locale-date-formatting-in-python">http://stackoverflow.com/questions/985505/locale-date-formatting-in-python</a></p>
 </div>
 </div>
 </div>
@@ -71,10 +72,11 @@ gunzip -c filename.gz <span class="p">|</span> psql dbname
         <div class="sphinxsidebarwrapper">
   <h3><a href="index.html">Tabla de Contenidos</a></h3>
   <ul>
-<li><a class="reference internal" href="#">postgres</a><ul>
-<li><a class="reference internal" href="#create-and-restore-a-compresed-backup">Create and restore a compresed backup</a></li>
-<li><a class="reference internal" href="#change-table-owner">Change table owner</a></li>
-<li><a class="reference internal" href="#delete-cascade">Delete cascade</a></li>
+<li><a class="reference internal" href="#">Python</a><ul>
+<li><a class="reference internal" href="#fechas">Fechas</a><ul>
+<li><a class="reference internal" href="#formatos-de-fechas-en-distintos-idiomas">Formatos de fechas en distintos idiomas:</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -82,15 +84,15 @@ gunzip -c filename.gz <span class="p">|</span> psql dbname
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="screen.html" title="capítulo anterior">Screen</a></li>
-      <li>Next: <a href="java.html" title="próximo capítulo">Systems</a></li>
+      <li>Previous: <a href="postgres.html" title="capítulo anterior">postgres</a></li>
+      <li>Next: <a href="java.html" title="próximo capítulo">Java</a></li>
   </ul></li>
 </ul>
 </div>
   <div role="note" aria-label="source link">
     <h3>Esta página</h3>
     <ul class="this-page-menu">
-      <li><a href="sources/postgres.txt"
+      <li><a href="sources/python.txt"
             rel="nofollow">Mostrar el código</a></li>
     </ul>
    </div>
@@ -119,7 +121,7 @@ gunzip -c filename.gz <span class="p">|</span> psql dbname
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.6</a>
       
       |
-      <a href="sources/postgres.txt"
+      <a href="sources/python.txt"
           rel="nofollow">Page source</a>
     </div>
 
