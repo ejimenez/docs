@@ -83,6 +83,30 @@ git rm --cached fichero
 <div class="highlight-bash"><div class="highlight"><pre>git checkout -- file
 </pre></div>
 </div>
+<ul class="simple">
+<li>Deshacer él último commit del repositorio (sino hemos hecho push):</li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre>git reset --hard HEAD~1
+</pre></div>
+</div>
+<ul class="simple">
+<li>Deshacer él último commit del repositorio manteniendo las modificaciones (sino hemos hecho push):</li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre>git reset --soft HEAD~1
+</pre></div>
+</div>
+<ul class="simple">
+<li>Deshacer él último commit del repositorio si ya hemos hecho push, solo si los usuarios todavían no han hecho pull:</li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre>git push origin HEAD --force
+</pre></div>
+</div>
+<ul class="simple">
+<li>Si los usuario ya han hecho pull lo mejor es realizar otro commit que deshaga el anterior mediante:</li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre>git revert HEAD
+</pre></div>
+</div>
 </div>
 <div class="section" id="repositorios-remotos">
 <h2>Repositorios Remotos<a class="headerlink" href="#repositorios-remotos" title="Enlazar permanentemente con este título">¶</a></h2>
@@ -93,13 +117,13 @@ git rm --cached fichero
 </pre></div>
 </div>
 <ul class="simple">
-<li>Recibir datos de repositorios remotos:</li>
+<li>Recibir datos de repositorios remotos (actualiza las referencias remotas):</li>
 </ul>
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git fetch <span class="o">[</span>remote-name<span class="o">]</span>
 </pre></div>
 </div>
 <ul class="simple">
-<li>Recibir y unir de un repositorio remoto:</li>
+<li>Recibir y unir de un repositorio remoto. Hace fetch y además merge de la rama remota a la rama local, esto se hace auntomáticamente cuando la rama local se ha trackeado a la remota:</li>
 </ul>
 <div class="highlight-bash"><div class="highlight"><pre>git pull
 </pre></div>
@@ -236,6 +260,10 @@ git merge hotfix
 </div>
 <p>Borrar una rama remota &#8220;serverfix&#8221;:</p>
 <div class="highlight-bash"><div class="highlight"><pre>git push origin :serverfix
+</pre></div>
+</div>
+<p>Ver información sobre ramas locales trackeadas a ramas remotas:</p>
+<div class="highlight-bash"><div class="highlight"><pre>git remote show origin
 </pre></div>
 </div>
 </div>
