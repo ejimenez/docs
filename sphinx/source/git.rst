@@ -47,6 +47,32 @@ La última linea sobrescribe el commit anterior.
 
     git checkout -- file
 
+* Deshacer él último commit del repositorio (sino hemos hecho push):
+
+.. code-block:: bash
+
+    git reset --hard HEAD~1
+
+* Deshacer él último commit del repositorio manteniendo las modificaciones (sino hemos hecho push):
+
+.. code-block:: bash
+
+    git reset --soft HEAD~1
+
+
+* Deshacer él último commit del repositorio si ya hemos hecho push, solo si los usuarios todavían no han hecho pull:
+
+.. code-block:: bash
+
+    git push origin HEAD --force
+
+* Si los usuario ya han hecho pull lo mejor es realizar otro commit que deshaga el anterior mediante:
+
+.. code-block:: bash
+
+    git revert HEAD
+
+
 Repositorios Remotos
 ====================
 
