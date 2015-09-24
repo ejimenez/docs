@@ -57,14 +57,14 @@ Repositorios Remotos
     git remote add pb git://github.com/paulboone/ticgit.git
 
 
-* Recibir datos de repositorios remotos:
+* Recibir datos de repositorios remotos (actualiza las referencias remotas):
 
 .. code-block:: bash
     
     $ git fetch [remote-name]
 
 
-* Recibir y unir de un repositorio remoto:
+* Recibir y unir de un repositorio remoto. Hace fetch y además merge de la rama remota a la rama local, esto se hace auntomáticamente cuando la rama local se ha trackeado a la remota:
 
 .. code-block:: bash
 
@@ -211,6 +211,12 @@ Borrar una rama remota "serverfix":
 .. code-block:: bash
     
     git push origin :serverfix
+
+Ver información sobre ramas locales trackeadas a ramas remotas:
+
+.. code-block:: bash
+
+    git remote show origin
 
 Pendiente de completar
 ======================
