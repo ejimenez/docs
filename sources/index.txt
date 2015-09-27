@@ -18,7 +18,6 @@ Contents:
    screen
    vim
    postgres
-   mercurial
    docker
    openstack
    javascript
