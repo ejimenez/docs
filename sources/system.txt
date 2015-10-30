@@ -99,6 +99,12 @@ Añadir usuario a grupo sudo
 
     sudo usermod -aG sudo <username>
 
+En centos:
+
+.. code-block:: bash
+
+    sudo gpasswd -a <username> wheel
+
 Seguridad
 =========
 

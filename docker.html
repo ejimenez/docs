@@ -1,0 +1,193 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>docker &mdash; documentación de Logbook - 0.1</title>
+    
+    <link rel="stylesheet" href="static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="static/jquery.js"></script>
+    <script type="text/javascript" src="static/underscore.js"></script>
+    <script type="text/javascript" src="static/doctools.js"></script>
+    <script type="text/javascript" src="static/translations.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="documentación de Logbook - 0.1" href="index.html" />
+    <link rel="next" title="CSS" href="css.html" />
+    <link rel="prev" title="postgres" href="postgres.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="docker">
+<h1>docker<a class="headerlink" href="#docker" title="Enlazar permanentemente con este título">¶</a></h1>
+<p>Recetas sacadas de <a class="reference external" href="http://rm-rf.es/como-instalar-configurar-usar-docker-linux-containers/">rm-rf.es</a></p>
+<div class="section" id="gestion-de-imagenes-y-contenedores">
+<h2>Gestión de imágenes y contenedores<a class="headerlink" href="#gestion-de-imagenes-y-contenedores" title="Enlazar permanentemente con este título">¶</a></h2>
+<ul class="simple">
+<li>Buscar imágenes:</li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre>docker search NOMBRE_IMAGEN <span class="p">|</span> more
+</pre></div>
+</div>
+<ul class="simple">
+<li>Descargar imagen:</li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre>docker pull NOMBRE_IMAGEN
+</pre></div>
+</div>
+<ul class="simple">
+<li>Para visualizar todas las imágenes:</li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre>docker images
+</pre></div>
+</div>
+<ul class="simple">
+<li>Crear y acceder al contenedor:</li>
+</ul>
+<p>docker run IMAGEN COMANDO_INICIAL</p>
+<div class="highlight-bash"><div class="highlight"><pre>docker run -i -t --name NOMBRE_CONTENEDOR NOMBRE_IMAGEN /usr/bin/bash
+</pre></div>
+</div>
+<ul class="simple">
+<li>Parar el contenedor:</li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre>docker stop ID_CONTENEDOR
+</pre></div>
+</div>
+<ul class="simple">
+<li>Iniciar contenedor parado:</li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre>docker start -a -i ID_CONTENEDOR
+</pre></div>
+</div>
+<ul class="simple">
+<li>Borrar un contenedor:</li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre>docker rm ID_CONTENEDOR
+</pre></div>
+</div>
+<ul class="simple">
+<li>Para saber que procesos se están ejecutando en el contenedor:</li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre>docker top ID_CONTENEDOR
+</pre></div>
+</div>
+<ul class="simple">
+<li>Listado de contenedores:</li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre>docker ps -l
+</pre></div>
+</div>
+<ul class="simple">
+<li>Comitear cambios de un contenedor:</li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre>docker commit ID_CONTENEDOR NOMBRE_IMAGEN
+</pre></div>
+</div>
+<ul class="simple">
+<li>Si queremos aderirnos a la shell ya activa dentro del contenedor:</li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre>docker attach ID_CONTENEDOR
+</pre></div>
+</div>
+<ul class="simple">
+<li>Ejecutar proceso en docker en nuevo terminal:</li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre>docker <span class="nb">exec</span> -i -t ID_CONTENEDOR /bin/bash
+</pre></div>
+</div>
+<ul>
+<li><p class="first">Obtener un registro de lo que se ha hecho en el contenedor:</p>
+<blockquote>
+<div><p>docker logs -f ID_CONTENEDOR</p>
+</div></blockquote>
+</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Tabla de Contenidos</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">docker</a><ul>
+<li><a class="reference internal" href="#gestion-de-imagenes-y-contenedores">Gestión de imágenes y contenedores</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="postgres.html" title="capítulo anterior">postgres</a></li>
+      <li>Next: <a href="css.html" title="próximo capítulo">CSS</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>Esta página</h3>
+    <ul class="this-page-menu">
+      <li><a href="sources/docker.txt"
+            rel="nofollow">Mostrar el código</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Búsqueda rápida</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Ir a" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Introduzca los términos de búsqueda o un nombre de módulo, clase o función.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Emilio Jiménez.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.6</a>
+      
+      |
+      <a href="sources/docker.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

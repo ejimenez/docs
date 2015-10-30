@@ -11,3 +11,18 @@ Create and restore a compresed backup
     gunzip -c filename.gz | psql dbname
 
 
+Change table owner
+==================
+
+.. code-block:: bash
+
+    ALTER TABLE tablax OWNER TO usuario_nuevo;
+
+Delete cascade
+==============
+
+.. code-block:: bash
+    
+    TRUNCATE table CASCADE;
+
+
