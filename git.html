@@ -26,7 +26,7 @@
     <script type="text/javascript" src="static/translations.js"></script>
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="top" title="documentación de Logbook - 0.1" href="index.html" />
-    <link rel="next" title="Subversion" href="subversion.html" />
+    <link rel="next" title="Mercurial" href="mercurial.html" />
     <link rel="prev" title="Welcome to Bitacora’s documentation!" href="index.html" />
    
   
@@ -178,6 +178,14 @@ git rm --cached fichero
 </pre></div>
 </div>
 <ul class="simple">
+<li>Guardar cambios no comiteados antes de cambiar de rama</li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git stash &lt;branch_name&gt;     <span class="c"># Guarda los cambios no comiteados</span>
+<span class="nv">$ </span>git checkout &lt;branch_name&gt;  <span class="c"># Cambias de rama</span>
+<span class="nv">$ </span>git stash apply             <span class="c"># Recuperas cambios no comiteados</span>
+</pre></div>
+</div>
+<ul class="simple">
 <li>Crear una rama y cambiar automaticamente:</li>
 </ul>
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git checkout -b &lt;branch_name&gt;
@@ -296,7 +304,7 @@ git merge hotfix
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
       <li>Previous: <a href="index.html" title="capítulo anterior">Welcome to Bitacora&#8217;s documentation!</a></li>
-      <li>Next: <a href="subversion.html" title="próximo capítulo">Subversion</a></li>
+      <li>Next: <a href="mercurial.html" title="próximo capítulo">Mercurial</a></li>
   </ul></li>
 </ul>
 </div>

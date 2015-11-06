@@ -17,6 +17,7 @@ Contents:
    system
    screen
    vim
+   apache
    postgres
    docker
    openstack

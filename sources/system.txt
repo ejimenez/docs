@@ -152,6 +152,45 @@ Dentro del directorio donde estan contenidos los ficheros a parchear:
     patch -p1 < parche.patch
 
 
+Servicios
+=========
+
+Habilitar y deshabilitar servicios en centos
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+* Ver si un servicio esta habilitado al inicio del sistema:
+
+.. code-block:: bash
+
+    $ systemctl status <service>
+
+Ejemplo:
+
+.. code-block:: bash
+
+    $ systemctl status httpd
+
+* Deshabilitar servicio al inicio:
+
+.. code-block:: bash
+
+    $ systemctl disable httpd
+
+* Habilitar servicio al inicio:
+
+.. code-block:: bash
+
+    $ systemctl enable httpd
+
+* Ver los servicios que fallarán al inicio:
+
+.. code-block:: bash
+
+    $ systemctl --failed
+
+
+
+
 
 
 

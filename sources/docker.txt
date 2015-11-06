@@ -83,8 +83,24 @@ docker run IMAGEN COMANDO_INICIAL
 
 * Obtener un registro de lo que se ha hecho en el contenedor:
 
+.. code-block:: bash
+
     docker logs -f ID_CONTENEDOR
 
 
+Compose
+=======
 
+* Comezar un servicio, ejecutar un comando en ese servicio y obtener el control de ese comando en la terminal actual:
+
+.. code-block:: bash
+
+    docker-compose run --service-ports <service> <comando>
+    
+
+* Ejemplo de ejecutar runserver de django (muy útil cuando necesitas usar un debugeador como ipdb):
+
+.. code-block:: bash
+
+    docker-compose run --service-ports webdjango bin/django runserver 0.0.0.0:8080
 

@@ -118,13 +118,27 @@
 <div class="highlight-bash"><div class="highlight"><pre>docker <span class="nb">exec</span> -i -t ID_CONTENEDOR /bin/bash
 </pre></div>
 </div>
-<ul>
-<li><p class="first">Obtener un registro de lo que se ha hecho en el contenedor:</p>
-<blockquote>
-<div><p>docker logs -f ID_CONTENEDOR</p>
-</div></blockquote>
-</li>
+<ul class="simple">
+<li>Obtener un registro de lo que se ha hecho en el contenedor:</li>
 </ul>
+<div class="highlight-bash"><div class="highlight"><pre>docker logs -f ID_CONTENEDOR
+</pre></div>
+</div>
+</div>
+<div class="section" id="compose">
+<h2>Compose<a class="headerlink" href="#compose" title="Enlazar permanentemente con este título">¶</a></h2>
+<ul class="simple">
+<li>Comezar un servicio, ejecutar un comando en ese servicio y obtener el control de ese comando en la terminal actual:</li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre>docker-compose run --service-ports &lt;service&gt; &lt;comando&gt;
+</pre></div>
+</div>
+<ul class="simple">
+<li>Ejemplo de ejecutar runserver de django (muy útil cuando necesitas usar un debugeador como ipdb):</li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre>docker-compose run --service-ports webdjango bin/django runserver 0.0.0.0:8080
+</pre></div>
+</div>
 </div>
 </div>
 
@@ -138,6 +152,7 @@
   <ul>
 <li><a class="reference internal" href="#">docker</a><ul>
 <li><a class="reference internal" href="#gestion-de-imagenes-y-contenedores">Gestión de imágenes y contenedores</a></li>
+<li><a class="reference internal" href="#compose">Compose</a></li>
 </ul>
 </li>
 </ul>
