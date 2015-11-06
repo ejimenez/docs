@@ -147,6 +147,14 @@ Ramas
 
     $ git checkout <branch_name>
 
+* Guardar cambios no comiteados antes de cambiar de rama
+
+.. code-block:: bash
+
+    $ git stash <branch_name>     # Guarda los cambios no comiteados
+    $ git checkout <branch_name>  # Cambias de rama
+    $ git stash apply             # Recuperas cambios no comiteados
+
 * Crear una rama y cambiar automaticamente:
 
 .. code-block:: bash
