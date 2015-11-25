@@ -19,6 +19,7 @@ Contents:
    vim
    apache
    postgres
+   mysql
    docker
    openstack
    javascript

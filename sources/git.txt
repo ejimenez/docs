@@ -72,6 +72,12 @@ La última linea sobrescribe el commit anterior.
 
     git revert HEAD
 
+* Obtener el número de revisión del último commit:
+
+.. code-block:: bash
+
+    git rev-parse HEAD
+
 
 Repositorios Remotos
 ====================
