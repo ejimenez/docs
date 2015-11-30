@@ -2,7 +2,7 @@
 Instrucciones uso y despliegue del repositorio
 ==============================================
 
-Para poder tener un repositorio de documentos sphinx publicado con github pages he seguido las instrucciones de `sphinxdoc-test <http://daler.github.io/sphinxdoc-test/includeme.html/>`_
+Para poder tener un repositorio de documentos sphinx publicado con github pages he seguido las instrucciones de `sphinxdoc-test <http://daler.github.io/sphinxdoc-test/includeme.html>`_
 
 Motar sistema de directorios
 ============================
