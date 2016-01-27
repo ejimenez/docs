@@ -32,6 +32,12 @@ Operaciones básicas
     $ git add forgotten_file
     $ git commit --amend
 
+* Ver un diff de cambios ya preparados:
+
+.. code-block:: bash
+
+    $ git diff --cached
+
 La última linea sobrescribe el commit anterior.
 
 
