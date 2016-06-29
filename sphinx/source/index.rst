@@ -30,6 +30,7 @@ Contents:
    django
    lpi
    buildout
+   contabilidad
    english
 
 Indices and tables
