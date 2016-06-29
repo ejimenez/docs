@@ -1,6 +1,6 @@
-###########
-GIT RECIPES
-###########
+###
+Git
+###
 
 Todas estas recetas están sacadas de `progit <http://git-scm.com/book/es>`_
 
@@ -32,6 +32,12 @@ Operaciones básicas
     $ git add forgotten_file
     $ git commit --amend
 
+* Ver un diff de cambios ya preparados:
+
+.. code-block:: bash
+
+    $ git diff --cached
+
 La última linea sobrescribe el commit anterior.
 
 
@@ -47,6 +53,38 @@ La última linea sobrescribe el commit anterior.
 
     git checkout -- file
 
+* Deshacer él último commit del repositorio (sino hemos hecho push):
+
+.. code-block:: bash
+
+    git reset --hard HEAD~1
+
+* Deshacer él último commit del repositorio manteniendo las modificaciones (sino hemos hecho push):
+
+.. code-block:: bash
+
+    git reset --soft HEAD~1
+
+
+* Deshacer él último commit del repositorio si ya hemos hecho push, solo si los usuarios todavían no han hecho pull:
+
+.. code-block:: bash
+
+    git push origin HEAD --force
+
+* Si los usuario ya han hecho pull lo mejor es realizar otro commit que deshaga el anterior mediante:
+
+.. code-block:: bash
+
+    git revert HEAD
+
+* Obtener el número de revisión del último commit:
+
+.. code-block:: bash
+
+    git rev-parse HEAD
+
+
 Repositorios Remotos
 ====================
 
@@ -57,14 +95,14 @@ Repositorios Remotos
     git remote add pb git://github.com/paulboone/ticgit.git
 
 
-* Recibir datos de repositorios remotos:
+* Recibir datos de repositorios remotos (actualiza las referencias remotas):
 
 .. code-block:: bash
     
     $ git fetch [remote-name]
 
 
-* Recibir y unir de un repositorio remoto:
+* Recibir y unir de un repositorio remoto. Hace fetch y además merge de la rama remota a la rama local, esto se hace auntomáticamente cuando la rama local se ha trackeado a la remota:
 
 .. code-block:: bash
 
@@ -120,6 +158,14 @@ Ramas
 .. code-block:: bash
 
     $ git checkout <branch_name>
+
+* Guardar cambios no comiteados antes de cambiar de rama
+
+.. code-block:: bash
+
+    $ git stash <branch_name>     # Guarda los cambios no comiteados
+    $ git checkout <branch_name>  # Cambias de rama
+    $ git stash apply             # Recuperas cambios no comiteados
 
 * Crear una rama y cambiar automaticamente:
 
@@ -211,6 +257,12 @@ Borrar una rama remota "serverfix":
 .. code-block:: bash
     
     git push origin :serverfix
+
+Ver información sobre ramas locales trackeadas a ramas remotas:
+
+.. code-block:: bash
+
+    git remote show origin
 
 Pendiente de completar
 ======================

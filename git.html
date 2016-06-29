@@ -26,7 +26,7 @@
     <script type="text/javascript" src="static/translations.js"></script>
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="top" title="documentación de Logbook - 0.1" href="index.html" />
-    <link rel="next" title="Subversion" href="subversion.html" />
+    <link rel="next" title="Mercurial" href="mercurial.html" />
     <link rel="prev" title="Welcome to Bitacora’s documentation!" href="index.html" />
    
   
@@ -70,6 +70,12 @@ git rm --cached fichero
 <span class="nv">$ </span>git commit --amend
 </pre></div>
 </div>
+<ul class="simple">
+<li>Ver un diff de cambios ya preparados:</li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git diff --cached
+</pre></div>
+</div>
 <p>La última linea sobrescribe el commit anterior.</p>
 <ul class="simple">
 <li>Deshacer los cambios preparados de un fichero:</li>
@@ -83,6 +89,36 @@ git rm --cached fichero
 <div class="highlight-bash"><div class="highlight"><pre>git checkout -- file
 </pre></div>
 </div>
+<ul class="simple">
+<li>Deshacer él último commit del repositorio (sino hemos hecho push):</li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre>git reset --hard HEAD~1
+</pre></div>
+</div>
+<ul class="simple">
+<li>Deshacer él último commit del repositorio manteniendo las modificaciones (sino hemos hecho push):</li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre>git reset --soft HEAD~1
+</pre></div>
+</div>
+<ul class="simple">
+<li>Deshacer él último commit del repositorio si ya hemos hecho push, solo si los usuarios todavían no han hecho pull:</li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre>git push origin HEAD --force
+</pre></div>
+</div>
+<ul class="simple">
+<li>Si los usuario ya han hecho pull lo mejor es realizar otro commit que deshaga el anterior mediante:</li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre>git revert HEAD
+</pre></div>
+</div>
+<ul class="simple">
+<li>Obtener el número de revisión del último commit:</li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre>git rev-parse HEAD
+</pre></div>
+</div>
 </div>
 <div class="section" id="repositorios-remotos">
 <h2>Repositorios Remotos<a class="headerlink" href="#repositorios-remotos" title="Enlazar permanentemente con este título">¶</a></h2>
@@ -93,13 +129,13 @@ git rm --cached fichero
 </pre></div>
 </div>
 <ul class="simple">
-<li>Recibir datos de repositorios remotos:</li>
+<li>Recibir datos de repositorios remotos (actualiza las referencias remotas):</li>
 </ul>
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git fetch <span class="o">[</span>remote-name<span class="o">]</span>
 </pre></div>
 </div>
 <ul class="simple">
-<li>Recibir y unir de un repositorio remoto:</li>
+<li>Recibir y unir de un repositorio remoto. Hace fetch y además merge de la rama remota a la rama local, esto se hace auntomáticamente cuando la rama local se ha trackeado a la remota:</li>
 </ul>
 <div class="highlight-bash"><div class="highlight"><pre>git pull
 </pre></div>
@@ -151,6 +187,14 @@ git rm --cached fichero
 <li>Cambiar a una rama:</li>
 </ul>
 <div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git checkout &lt;branch_name&gt;
+</pre></div>
+</div>
+<ul class="simple">
+<li>Guardar cambios no comiteados antes de cambiar de rama</li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>git stash &lt;branch_name&gt;     <span class="c"># Guarda los cambios no comiteados</span>
+<span class="nv">$ </span>git checkout &lt;branch_name&gt;  <span class="c"># Cambias de rama</span>
+<span class="nv">$ </span>git stash apply             <span class="c"># Recuperas cambios no comiteados</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -238,6 +282,10 @@ git merge hotfix
 <div class="highlight-bash"><div class="highlight"><pre>git push origin :serverfix
 </pre></div>
 </div>
+<p>Ver información sobre ramas locales trackeadas a ramas remotas:</p>
+<div class="highlight-bash"><div class="highlight"><pre>git remote show origin
+</pre></div>
+</div>
 </div>
 <div class="section" id="pendiente-de-completar">
 <h2>Pendiente de completar<a class="headerlink" href="#pendiente-de-completar" title="Enlazar permanentemente con este título">¶</a></h2>
@@ -268,7 +316,7 @@ git merge hotfix
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
       <li>Previous: <a href="index.html" title="capítulo anterior">Welcome to Bitacora&#8217;s documentation!</a></li>
-      <li>Next: <a href="subversion.html" title="próximo capítulo">Subversion</a></li>
+      <li>Next: <a href="mercurial.html" title="próximo capítulo">Mercurial</a></li>
   </ul></li>
 </ul>
 </div>

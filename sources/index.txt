@@ -17,8 +17,9 @@ Contents:
    system
    screen
    vim
+   apache
    postgres
-   mercurial
+   mysql
    docker
    openstack
    javascript
@@ -29,6 +30,7 @@ Contents:
    django
    lpi
    buildout
+   contabilidad
    english
 
 Indices and tables

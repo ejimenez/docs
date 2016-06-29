@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Welcome to Bitacora’s documentation! &mdash; documentación de Logbook - 0.1</title>
+    <title>Apache &mdash; documentación de Logbook - 0.1</title>
     
     <link rel="stylesheet" href="static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="static/pygments.css" type="text/css" />
@@ -25,8 +25,9 @@
     <script type="text/javascript" src="static/doctools.js"></script>
     <script type="text/javascript" src="static/translations.js"></script>
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="documentación de Logbook - 0.1" href="#" />
-    <link rel="next" title="Git" href="git.html" />
+    <link rel="top" title="documentación de Logbook - 0.1" href="index.html" />
+    <link rel="next" title="postgres" href="postgres.html" />
+    <link rel="prev" title="Screen" href="screen.html" />
    
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
@@ -39,36 +40,26 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="welcome-to-bitacora-s-documentation">
-<h1>Welcome to Bitacora&#8217;s documentation!<a class="headerlink" href="#welcome-to-bitacora-s-documentation" title="Enlazar permanentemente con este título">¶</a></h1>
-<p>Contents:</p>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="git.html">Git</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mercurial.html">Mercurial</a></li>
-<li class="toctree-l1"><a class="reference internal" href="subversion.html">Subversion</a></li>
-<li class="toctree-l1"><a class="reference internal" href="system.html">Sistemas</a></li>
-<li class="toctree-l1"><a class="reference internal" href="screen.html">Screen</a></li>
-<li class="toctree-l1"><a class="reference internal" href="apache.html">Apache</a></li>
-<li class="toctree-l1"><a class="reference internal" href="postgres.html">postgres</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mysql.html">mysql</a></li>
-<li class="toctree-l1"><a class="reference internal" href="docker.html">docker</a></li>
-<li class="toctree-l1"><a class="reference internal" href="css.html">CSS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="python.html">Python</a></li>
-<li class="toctree-l1"><a class="reference internal" href="java.html">Java</a></li>
-<li class="toctree-l1"><a class="reference internal" href="buildout.html">buildout</a></li>
-<li class="toctree-l1"><a class="reference internal" href="contabilidad.html">Contabilidad</a></li>
-<li class="toctree-l1"><a class="reference internal" href="english.html">Inglés</a></li>
-</ul>
-</div>
-</div>
-<div class="section" id="indices-and-tables">
-<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Enlazar permanentemente con este título">¶</a></h1>
+  <div class="section" id="apache">
+<h1>Apache<a class="headerlink" href="#apache" title="Enlazar permanentemente con este título">¶</a></h1>
+<div class="section" id="linea-de-comandos">
+<h2>Linea de comandos<a class="headerlink" href="#linea-de-comandos" title="Enlazar permanentemente con este título">¶</a></h2>
 <ul class="simple">
-<li><a class="reference internal" href="genindex.html"><span>Índice</span></a></li>
-<li><a class="reference internal" href="py-modindex.html"><span>Índice de Módulos</span></a></li>
-<li><a class="reference internal" href="search.html"><span>Página de Búsqueda</span></a></li>
+<li>Comprobar sintaxis de los ficheros de configuración:</li>
 </ul>
+<div class="highlight-bash"><div class="highlight"><pre>apachectl configtest
+</pre></div>
+</div>
+</div>
+<div class="section" id="instalacion-de-modulos">
+<h2>Instalación de módulos<a class="headerlink" href="#instalacion-de-modulos" title="Enlazar permanentemente con este título">¶</a></h2>
+<ul class="simple">
+<li>Instalar mod_wsgi en centos:</li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre>sudo yum install mod_wsgi
+</pre></div>
+</div>
+</div>
 </div>
 
 
@@ -77,23 +68,27 @@
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
-  <h3><a href="#">Tabla de Contenidos</a></h3>
+  <h3><a href="index.html">Tabla de Contenidos</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Welcome to Bitacora&#8217;s documentation!</a></li>
-<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+<li><a class="reference internal" href="#">Apache</a><ul>
+<li><a class="reference internal" href="#linea-de-comandos">Linea de comandos</a></li>
+<li><a class="reference internal" href="#instalacion-de-modulos">Instalación de módulos</a></li>
+</ul>
+</li>
 </ul>
 <div class="relations">
 <h3>Related Topics</h3>
 <ul>
-  <li><a href="#">Documentation overview</a><ul>
-      <li>Next: <a href="git.html" title="próximo capítulo">Git</a></li>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="screen.html" title="capítulo anterior">Screen</a></li>
+      <li>Next: <a href="postgres.html" title="próximo capítulo">postgres</a></li>
   </ul></li>
 </ul>
 </div>
   <div role="note" aria-label="source link">
     <h3>Esta página</h3>
     <ul class="this-page-menu">
-      <li><a href="sources/index.txt"
+      <li><a href="sources/apache.txt"
             rel="nofollow">Mostrar el código</a></li>
     </ul>
    </div>
@@ -122,7 +117,7 @@
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.6</a>
       
       |
-      <a href="sources/index.txt"
+      <a href="sources/apache.txt"
           rel="nofollow">Page source</a>
     </div>
 

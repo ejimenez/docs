@@ -1,0 +1,514 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Mercurial &mdash; documentación de Logbook - 0.1</title>
+    
+    <link rel="stylesheet" href="static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="static/jquery.js"></script>
+    <script type="text/javascript" src="static/underscore.js"></script>
+    <script type="text/javascript" src="static/doctools.js"></script>
+    <script type="text/javascript" src="static/translations.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="top" title="documentación de Logbook - 0.1" href="index.html" />
+    <link rel="next" title="Subversion" href="subversion.html" />
+    <link rel="prev" title="Git" href="git.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="mercurial">
+<h1>Mercurial<a class="headerlink" href="#mercurial" title="Enlazar permanentemente con este título">¶</a></h1>
+<div class="section" id="documentacion-mercurial">
+<h2>Documentación Mercurial<a class="headerlink" href="#documentacion-mercurial" title="Enlazar permanentemente con este título">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="http://mercurial.selenic.com/wiki/QuickStart">Guía Rápida</a></li>
+<li><a class="reference external" href="http://mercurial.selenic.com/wiki/UnderstandingMercurial">Filosofía</a></li>
+<li><a class="reference external" href="http://mercurial.selenic.com/wiki/Tutorial">Tutorial</a></li>
+<li><a class="reference external" href="http://hgbook.red-bean.com/read/">Guía definitiva</a></li>
+</ul>
+</div>
+<div class="section" id="recetas-mercurial">
+<h2>Recetas Mercurial<a class="headerlink" href="#recetas-mercurial" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="section" id="configuracion">
+<h3>Configuración<a class="headerlink" href="#configuracion" title="Enlazar permanentemente con este título">¶</a></h3>
+<div class="section" id="configurar-ignores-de-ficheros">
+<h4>Configurar ignores de ficheros<a class="headerlink" href="#configurar-ignores-de-ficheros" title="Enlazar permanentemente con este título">¶</a></h4>
+<p>&#8216;&#8217;&#8216;A nivel de sistema&#8217;&#8216;&#8217;:</p>
+<p>Creamos /etc/mercurial/.hgignore, con:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="c"># use glob syntax.</span>
+syntax: glob
+*.pyc
+*~
+*egg-info
+build/*
+buildout/downloads/*
+buildout/parts/*
+buildout/eggs/*
+buildout/var/*
+buildout/etc/*
+buildout/bin/*
+</pre></div>
+</div>
+<p>Creamos archivo de configuración, /etc/mercurial/hgrc con:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="o">[</span>ui<span class="o">]</span>
+<span class="nv">ignore</span><span class="o">=</span> /etc/mercurial/.hgignore
+</pre></div>
+</div>
+<p>Como hacer el equivalente a blame de svn (en el fichero anterior añadir lo siguiente):</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="o">[</span><span class="nb">alias</span><span class="o">]</span>
+<span class="nv">blame</span> <span class="o">=</span> annotate --user --number
+</pre></div>
+</div>
+<p>&#8216;&#8217;&#8216;A nivel de usuario:&#8217;&#8216;&#8217;</p>
+<p>Igual que el anterior pero creando el fichero .hgrc en el home del usuario.</p>
+<p>&#8216;&#8217;&#8216;A nivel de repositorio:&#8217;&#8216;&#8217;</p>
+<p>Creamos el fichero .hgignore con las reglas dentro del directorio root del repositorio.</p>
+</div>
+<div class="section" id="configurar-nombre-de-usuario">
+<h4>Configurar nombre de usuario<a class="headerlink" href="#configurar-nombre-de-usuario" title="Enlazar permanentemente con este título">¶</a></h4>
+<p>En el fichero de configuración .hgrc:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="o">[</span>ui<span class="o">]</span>
+<span class="nv">username</span> <span class="o">=</span> John Doe &lt;john@example.com&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="extensiones-utiles">
+<h4>Extensiones útiles<a class="headerlink" href="#extensiones-utiles" title="Enlazar permanentemente con este título">¶</a></h4>
+<p>Incluir las siguientes extensiones en el .hgrc:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="o">[</span>extensions<span class="o">]</span>
+<span class="nv">fetch</span> <span class="o">=</span>
+<span class="nv">rebase</span> <span class="o">=</span>
+<span class="nv">color</span> <span class="o">=</span>
+hgext.mq <span class="o">=</span>
+<span class="nv">hgk</span> <span class="o">=</span>
+<span class="nv">pager</span> <span class="o">=</span>
+
+<span class="o">[</span>pager<span class="o">]</span>
+<span class="nv">pager</span> <span class="o">=</span> <span class="nv">LESS</span><span class="o">=</span><span class="s1">&#39;FSRX&#39;</span> less
+</pre></div>
+</div>
+</div>
+<div class="section" id="configurar-hooks-pep8-pyflakes-y-pdb-locales">
+<h4>Configurar hooks PEP8, Pyflakes y PDB locales<a class="headerlink" href="#configurar-hooks-pep8-pyflakes-y-pdb-locales" title="Enlazar permanentemente con este título">¶</a></h4>
+<ul class="simple">
+<li>Instalar <a class="reference external" href="http://pypi.python.org/pypi/hghooks/0.3.1hghooks">hghooks</a>:</li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre>   <span class="nv">$ </span>sudo easy_install hghooks
+
+
+En Arch Linux se puede instalar desde AUR directamente:
+</pre></div>
+</div>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>yaourt -Sy python-hghooks
+</pre></div>
+</div>
+<ul class="simple">
+<li><a class="reference external" href="http://pypi.python.org/pypi/hghooks/0.3.1#usage">Configurar hghooks</a>, añadiendo las siguientes líneas al fichero <cite>$HOME/.hgrc</cite>:</li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre><span class="o">[</span>hooks<span class="o">]</span>
+pretxncommit.pyflakes <span class="o">=</span> python:hghooks.code.pyflakeshook
+pretxncommit.pep8 <span class="o">=</span> python:hghooks.code.pep8hook
+pretxncommit.pdb <span class="o">=</span> python:hghooks.code.pdbhook
+
+<span class="o">[</span>pep8<span class="o">]</span>
+<span class="nv">ignore</span> <span class="o">=</span> E501
+</pre></div>
+</div>
+</div>
+<div class="section" id="crear-un-repositorio-externo-hg">
+<h4>Crear un repositorio externo hg<a class="headerlink" href="#crear-un-repositorio-externo-hg" title="Enlazar permanentemente con este título">¶</a></h4>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nb">echo </span><span class="nv">nested</span> <span class="o">=</span> https://example.com/nested/repo/path &gt; .hgsub
+hg add .hgsub
+hg clone https://example.com/nested/repo/path nested
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="gestion-de-ramas">
+<h2>Gestión de Ramas<a class="headerlink" href="#gestion-de-ramas" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="section" id="crear-una-nueva-rama">
+<h3>Crear una nueva rama<a class="headerlink" href="#crear-una-nueva-rama" title="Enlazar permanentemente con este título">¶</a></h3>
+<div class="highlight-bash"><div class="highlight"><pre>hg branch &lt;branch_name&gt;
+</pre></div>
+</div>
+<p>Nota: todavía tienes que comitearla, ver más adelante.</p>
+</div>
+<div class="section" id="trabajar-en-una-rama">
+<h3>Trabajar en una rama<a class="headerlink" href="#trabajar-en-una-rama" title="Enlazar permanentemente con este título">¶</a></h3>
+<div class="highlight-bash"><div class="highlight"><pre>hg update &lt;branch_name&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="comitear-la-rama">
+<h3>Comitear la rama<a class="headerlink" href="#comitear-la-rama" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Me sitúo en la rama:</p>
+<div class="highlight-bash"><div class="highlight"><pre>hg update &lt;branch_name&gt;
+</pre></div>
+</div>
+<p>Comiteo la rama:</p>
+<div class="highlight-bash"><div class="highlight"><pre>hg push --new-branch
+</pre></div>
+</div>
+<p>Nota: comitear una nueva rama solo se hace una vez.</p>
+</div>
+<div class="section" id="actualizar-una-rama">
+<h3>Actualizar una rama<a class="headerlink" href="#actualizar-una-rama" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Para traerte los nuevos cambios a tu repositorio:</p>
+<div class="highlight-bash"><div class="highlight"><pre>hg pull
+hg update &lt;branch_name&gt;
+</pre></div>
+</div>
+<p>Enviar cambios al servidor:</p>
+<div class="highlight-bash"><div class="highlight"><pre>hg push
+</pre></div>
+</div>
+</div>
+<div class="section" id="cerrar-una-rama">
+<h3>Cerrar una rama<a class="headerlink" href="#cerrar-una-rama" title="Enlazar permanentemente con este título">¶</a></h3>
+<div class="highlight-bash"><div class="highlight"><pre>hg commit -m <span class="s2">&quot;Cerramos la rama &lt;branch_name&gt;&quot;</span> --close-branch
+</pre></div>
+</div>
+</div>
+<div class="section" id="mezcla-de-una-rama-con-otra">
+<h3>Mezcla de una rama con otra<a class="headerlink" href="#mezcla-de-una-rama-con-otra" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>En el siguiente ejemplo mezclamos los cambios de &lt;branch_name&gt; a la rama default:</p>
+<div class="highlight-bash"><div class="highlight"><pre>hg update default
+hg merge &lt;branch_name&gt;  <span class="c"># aqui puede haber conflictos</span>
+hg commit -m <span class="s2">&quot;Mezclamos &lt;branch_name&gt; en la rama de desarrollo&quot;</span>
+hg push
+</pre></div>
+</div>
+</div>
+<div class="section" id="trasplantar-un-commit-de-una-rama-a-otra">
+<h3>Trasplantar un commit de una rama a otra<a class="headerlink" href="#trasplantar-un-commit-de-una-rama-a-otra" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Necesitas tener activa la extensión transplant:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="o">[</span>extensions<span class="o">]</span>
+<span class="nv">transplant</span><span class="o">=</span>
+</pre></div>
+</div>
+<p>Un ejemplo de uso sería:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>hg transplant 40:43 56
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="acciones-comunes">
+<h2>Acciones comunes<a class="headerlink" href="#acciones-comunes" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="section" id="recuperar-fichero-versionado-borrado-localmente">
+<h3>Recuperar fichero versionado borrado localmente<a class="headerlink" href="#recuperar-fichero-versionado-borrado-localmente" title="Enlazar permanentemente con este título">¶</a></h3>
+<div class="highlight-bash"><div class="highlight"><pre>hg revert &lt;nombre-fichero&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="resolver-conflictos-manualmente">
+<h3>Resolver conflictos manualmente<a class="headerlink" href="#resolver-conflictos-manualmente" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Después de resolver los conflictos manualmente hay que marcarlos como resueltos:</p>
+<div class="highlight-bash"><div class="highlight"><pre>hg resolve -m &lt;nombre_fichero&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="revertir-commits-locales-sin-revertir-los-cambios-en-los-ficheros">
+<h3>Revertir commits locales, sin revertir los cambios en los ficheros<a class="headerlink" href="#revertir-commits-locales-sin-revertir-los-cambios-en-los-ficheros" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Imagina que has hecho un commit local, pero se te ha olvidado pasar el pep8. Los pasos a seguir son:</p>
+<div class="highlight-bash"><div class="highlight"><pre>hg log <span class="p">|</span> less <span class="c"># recupera el mensaje del último commit</span>
+hg rollback <span class="c"># revierte el commit</span>
+<span class="c"># pasale el pep8 al fichero</span>
+hg commmit <span class="c"># vuelve a comitearlo, pegando el mensaje copiado en el primer punto</span>
+hg push <span class="c"># envía los cambios al servidor</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="revertir-cambios-locales-ojo-revierte-los-cambios-en-los-ficheros-locales-como-si-no-hubieras-hecho-nada">
+<h3>Revertir cambios locales, OJO revierte los cambios en los ficheros locales (como si no hubieras hecho nada)<a class="headerlink" href="#revertir-cambios-locales-ojo-revierte-los-cambios-en-los-ficheros-locales-como-si-no-hubieras-hecho-nada" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Última opción para cuando se quiere revertir algo y no sabes muy bien como hacerlo (guarda los diff antes)</p>
+<div class="highlight-bash"><div class="highlight"><pre>hg diff  <span class="s2">&quot;ruta cambios a guardar&quot;</span> &gt; cambios.diff
+hg update -C
+</pre></div>
+</div>
+</div>
+<div class="section" id="deshacer-un-revert-de-cambios-locales-no-comiteados">
+<h3>Deshacer un revert de cambios locales no comiteados<a class="headerlink" href="#deshacer-un-revert-de-cambios-locales-no-comiteados" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Supongamos que tenemos cambios y hacemos <cite>hg revert hello.c</cite>, para recuperar los cambios hacemos lo siguiente:</p>
+<div class="highlight-bash"><div class="highlight"><pre>rm hello.c
+mv hello.c.orig hello.c
+</pre></div>
+</div>
+</div>
+<div class="section" id="alteracion-de-commits-locales-porque-el-push-al-servidor-falla">
+<h3>Alteración de commits locales porque el push al servidor falla<a class="headerlink" href="#alteracion-de-commits-locales-porque-el-push-al-servidor-falla" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Supongamos que hacemos dos commits, y después, al hacer el push, falla en el servidor porque el primero de los dos commits es erróneo (no menciona ticket abierto, falla el pyflakes, etc.).</p>
+<p>La solución pasa por hacer uso de las colas de la extensión mq, que hay que instalarse en local, añadiendo la siguiente línea en el <cite>$HOME/.hgrc</cite>:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="o">[</span>extensions<span class="o">]</span>
+...
+hgext.mq <span class="o">=</span>
+</pre></div>
+</div>
+<p>Veámos el log para hacernos una idea de nuestro fallo de prueba:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>hg log -l 2
+
+changeset:   140:8ff7e5eac70f
+tag:         tip
+user:        msaelices
+date:        Thu Nov <span class="m">04</span> 18:13:20 <span class="m">2010</span> +0100
+summary:     Otro commit de prueba normal. Ver <span class="c">#1.</span>
+
+changeset:   139:9ce891ce41fe
+user:        msaelices
+date:        Thu Nov <span class="m">04</span> 18:12:34 <span class="m">2010</span> +0100
+summary:     Commit de prueba para que deberia hacer saltar pyflakes. Ver <span class="c">#1.</span>
+</pre></div>
+</div>
+<p>Lo que queremos hacer es lo siguiente:
+* Crear una cola de parches, incluyendo tanto los cambios 140 y 139 en ella.
+* Desencolar el parche del cambio 139.
+* Cambiar a mano el mensaje de commit, añadiendo un <cite>no-pyflakes</cite> detrás para permitir el push.
+* Re-encolar el parche y finalizar el tratamiento de las colas.
+* Hacer push.</p>
+<p>Esto se hace con la siguiente secuencia:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>hg qinit    &lt;--- si nunca has usado colas de parches
+<span class="nv">$ </span>hg qimport -r140 -r139    &lt;--- encolamos los dos changesets, no se puede encolar el <span class="m">139</span> sin encolar el siguiente
+<span class="nv">$ </span>hg log -l 2
+
+changeset:   140:8ff7e5eac70f
+tag:         140.diff
+tag:         qtip         &lt;--- inicio de la cola
+tag:         tip
+user:        msaelices
+date:        Thu Nov <span class="m">04</span> 18:13:20 <span class="m">2010</span> +0100
+summary:     Otro commit de prueba normal. Ver <span class="c">#1.</span>
+
+changeset:   139:9ce891ce41fe
+tag:         139.diff
+tag:         qbase        &lt;--- fin de la cola
+user:        msaelices
+date:        Thu Nov <span class="m">04</span> 18:12:34 <span class="m">2010</span> +0100
+summary:     Commit de prueba para que deberia hacer saltar pyflakes. Ver <span class="c">#1.</span>
+
+<span class="nv">$ </span>hg qpop
+popping 140.diff
+now at: 139.diff
+<span class="nv">$ </span>hg qpop
+popping 139.diff
+patch queue now empty
+<span class="nv">$ </span>vim .hg/patches/139.diff  &lt;--- editamos el mensaje de commit y le añadimos <span class="s2">&quot;no-pyflakes&quot;</span>
+<span class="nv">$ </span>hg qpush
+applying 139.diff
+now at: 139.diff
+<span class="nv">$ </span>hg qpush
+applying 140.diff
+now at: 140.diff
+<span class="nv">$ </span>hg qfinish -a
+<span class="nv">$ </span>hg log -l 2
+</pre></div>
+</div>
+<dl class="docutils">
+<dt>...</dt>
+<dd><p class="first">changeset:   139:dfd682600978
+user:        msaelices
+date:        Thu Nov 04 18:12:34 2010 +0100
+summary:     Commit de prueba para que deberia hacer saltar pyflakes. Ver #1. no-pyflakes.  &lt;&#8212; mensaje de commit cambiado :-)</p>
+<p class="last">$ hg push</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="extension-opcional-histedit-para-alterar-los-mensajes-en-commits-locales">
+<h3>Extensión opcional: histedit para alterar los mensajes en commits locales<a class="headerlink" href="#extension-opcional-histedit-para-alterar-los-mensajes-en-commits-locales" title="Enlazar permanentemente con este título">¶</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li>Nombre extensión: histedit</li>
+<li>Repositorio: <a class="reference external" href="https://bitbucket.org/durin42/histedit">https://bitbucket.org/durin42/histedit</a></li>
+</ul>
+</div></blockquote>
+<div class="section" id="descarga-y-configuracion">
+<h4>Descarga y configuración<a class="headerlink" href="#descarga-y-configuracion" title="Enlazar permanentemente con este título">¶</a></h4>
+<ul class="simple">
+<li>En la shell ejecutamos:</li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre>hg clone https://bitbucket.org/durin42/histedit
+</pre></div>
+</div>
+<ul class="simple">
+<li>Abrir nuestro <cite>.hgrc</cite> y en la sección <cite>[extensions]</cite> añadimos lo siguiente:</li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">histedit</span> <span class="o">=</span> /path/to/histedit/hg_histedit.py
+</pre></div>
+</div>
+</div>
+<div class="section" id="ejemplo-de-uso">
+<h4>Ejemplo de uso<a class="headerlink" href="#ejemplo-de-uso" title="Enlazar permanentemente con este título">¶</a></h4>
+<ul class="simple">
+<li>Suponiendo que el mensaje de commit que queremos cambiar es &#8216;&#8217;&#8216;139&#8217;&#8216;&#8217;, ejecutamos:</li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>hg histedit -r139
+</pre></div>
+</div>
+<ul class="simple">
+<li>Aparecerá una pantalla con los commits realizados. Solo tenemos que saber qué mensaje queremos cambiar y editar la linea cambiando &#8216;pick&#8217; por &#8216;edit&#8217; y salvar los cambios.</li>
+<li>Tras esto ejecutamos:</li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>hg histedit --continue
+</pre></div>
+</div>
+<ul class="simple">
+<li>Aparecerá el mensaje de nuestro commit listo para modificar.</li>
+<li>Mergear cambios con <cite>hg merge</cite>.</li>
+</ul>
+<dl class="docutils">
+<dt>&#8216;&#8217;&#8216;Enlaces relacionados:&#8217;&#8216;&#8217;</dt>
+<dd><ul class="first last simple">
+<li><a class="reference external" href="http://mercurial.selenic.com/wiki/HisteditExtension">http://mercurial.selenic.com/wiki/HisteditExtension</a></li>
+<li><a class="reference external" href="http://knowledgestockpile.blogspot.com/2010/12/changing-commit-message-of-revision-in.html">http://knowledgestockpile.blogspot.com/2010/12/changing-commit-message-of-revision-in.html</a></li>
+</ul>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="mezcla-de-los-catalogos-de-traduccion-po">
+<h3>Mezcla de los catálogos de traducción .po<a class="headerlink" href="#mezcla-de-los-catalogos-de-traduccion-po" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Para resolver los conflictos de forma eficiente en los archivos de traducción (catálogos .po) se puede instalar y configurar la herramienta <cite>pomerge</cite>. Que se instala con el paquete debian <cite>translate-toolkit</cite></p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="o">[</span>merge-tools<span class="o">]</span>
+pomerge.priority <span class="o">=</span> 60
+pomerge.premerge <span class="o">=</span> False
+pomerge.args <span class="o">=</span> <span class="nv">$local</span> <span class="nv">$other</span> <span class="nv">$output</span>
+pomerge.executable <span class="o">=</span> pomerge
+
+<span class="o">[</span>merge-patterns<span class="o">]</span>
+**.po <span class="o">=</span> pomerge
+**.mo <span class="o">=</span> internal:fail
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="otros">
+<h2>Otros<a class="headerlink" href="#otros" title="Enlazar permanentemente con este título">¶</a></h2>
+<ul class="simple">
+<li><a class="reference external" href="http://mercurial.selenic.com/wiki/GitConcepts#Command_equivalence_table">Equivalencia de comandos entre git y mercurial</a></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Tabla de Contenidos</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Mercurial</a><ul>
+<li><a class="reference internal" href="#documentacion-mercurial">Documentación Mercurial</a></li>
+<li><a class="reference internal" href="#recetas-mercurial">Recetas Mercurial</a><ul>
+<li><a class="reference internal" href="#configuracion">Configuración</a><ul>
+<li><a class="reference internal" href="#configurar-ignores-de-ficheros">Configurar ignores de ficheros</a></li>
+<li><a class="reference internal" href="#configurar-nombre-de-usuario">Configurar nombre de usuario</a></li>
+<li><a class="reference internal" href="#extensiones-utiles">Extensiones útiles</a></li>
+<li><a class="reference internal" href="#configurar-hooks-pep8-pyflakes-y-pdb-locales">Configurar hooks PEP8, Pyflakes y PDB locales</a></li>
+<li><a class="reference internal" href="#crear-un-repositorio-externo-hg">Crear un repositorio externo hg</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#gestion-de-ramas">Gestión de Ramas</a><ul>
+<li><a class="reference internal" href="#crear-una-nueva-rama">Crear una nueva rama</a></li>
+<li><a class="reference internal" href="#trabajar-en-una-rama">Trabajar en una rama</a></li>
+<li><a class="reference internal" href="#comitear-la-rama">Comitear la rama</a></li>
+<li><a class="reference internal" href="#actualizar-una-rama">Actualizar una rama</a></li>
+<li><a class="reference internal" href="#cerrar-una-rama">Cerrar una rama</a></li>
+<li><a class="reference internal" href="#mezcla-de-una-rama-con-otra">Mezcla de una rama con otra</a></li>
+<li><a class="reference internal" href="#trasplantar-un-commit-de-una-rama-a-otra">Trasplantar un commit de una rama a otra</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#acciones-comunes">Acciones comunes</a><ul>
+<li><a class="reference internal" href="#recuperar-fichero-versionado-borrado-localmente">Recuperar fichero versionado borrado localmente</a></li>
+<li><a class="reference internal" href="#resolver-conflictos-manualmente">Resolver conflictos manualmente</a></li>
+<li><a class="reference internal" href="#revertir-commits-locales-sin-revertir-los-cambios-en-los-ficheros">Revertir commits locales, sin revertir los cambios en los ficheros</a></li>
+<li><a class="reference internal" href="#revertir-cambios-locales-ojo-revierte-los-cambios-en-los-ficheros-locales-como-si-no-hubieras-hecho-nada">Revertir cambios locales, OJO revierte los cambios en los ficheros locales (como si no hubieras hecho nada)</a></li>
+<li><a class="reference internal" href="#deshacer-un-revert-de-cambios-locales-no-comiteados">Deshacer un revert de cambios locales no comiteados</a></li>
+<li><a class="reference internal" href="#alteracion-de-commits-locales-porque-el-push-al-servidor-falla">Alteración de commits locales porque el push al servidor falla</a></li>
+<li><a class="reference internal" href="#extension-opcional-histedit-para-alterar-los-mensajes-en-commits-locales">Extensión opcional: histedit para alterar los mensajes en commits locales</a><ul>
+<li><a class="reference internal" href="#descarga-y-configuracion">Descarga y configuración</a></li>
+<li><a class="reference internal" href="#ejemplo-de-uso">Ejemplo de uso</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mezcla-de-los-catalogos-de-traduccion-po">Mezcla de los catálogos de traducción .po</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#otros">Otros</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="git.html" title="capítulo anterior">Git</a></li>
+      <li>Next: <a href="subversion.html" title="próximo capítulo">Subversion</a></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>Esta página</h3>
+    <ul class="this-page-menu">
+      <li><a href="sources/mercurial.txt"
+            rel="nofollow">Mostrar el código</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Búsqueda rápida</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Ir a" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Introduzca los términos de búsqueda o un nombre de módulo, clase o función.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2015, Emilio Jiménez.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.6</a>
+      
+      |
+      <a href="sources/mercurial.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

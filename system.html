@@ -122,6 +122,10 @@ sudo usermod -aG sudo &lt;username&gt;</p>
 <div class="highlight-bash"><div class="highlight"><pre>sudo usermod -aG sudo &lt;username&gt;
 </pre></div>
 </div>
+<p>En centos:</p>
+<div class="highlight-bash"><div class="highlight"><pre>sudo gpasswd -a &lt;username&gt; wheel
+</pre></div>
+</div>
 </div>
 </div>
 <div class="section" id="seguridad">
@@ -162,6 +166,40 @@ sudo usermod -aG sudo &lt;username&gt;</p>
 <h3>Aplicar parches<a class="headerlink" href="#aplicar-parches" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Dentro del directorio donde estan contenidos los ficheros a parchear:</p>
 <div class="highlight-bash"><div class="highlight"><pre>patch -p1 &lt; parche.patch
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="servicios">
+<h2>Servicios<a class="headerlink" href="#servicios" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="section" id="habilitar-y-deshabilitar-servicios-en-centos">
+<h3>Habilitar y deshabilitar servicios en centos<a class="headerlink" href="#habilitar-y-deshabilitar-servicios-en-centos" title="Enlazar permanentemente con este título">¶</a></h3>
+<ul class="simple">
+<li>Ver si un servicio esta habilitado al inicio del sistema:</li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>systemctl status &lt;service&gt;
+</pre></div>
+</div>
+<p>Ejemplo:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>systemctl status httpd
+</pre></div>
+</div>
+<ul class="simple">
+<li>Deshabilitar servicio al inicio:</li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>systemctl disable httpd
+</pre></div>
+</div>
+<ul class="simple">
+<li>Habilitar servicio al inicio:</li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>systemctl <span class="nb">enable </span>httpd
+</pre></div>
+</div>
+<ul class="simple">
+<li>Ver los servicios que fallarán al inicio:</li>
+</ul>
+<div class="highlight-bash"><div class="highlight"><pre><span class="nv">$ </span>systemctl --failed
 </pre></div>
 </div>
 </div>
@@ -211,6 +249,10 @@ sudo usermod -aG sudo &lt;username&gt;</p>
 </li>
 <li><a class="reference internal" href="#ficheros">Ficheros</a><ul>
 <li><a class="reference internal" href="#aplicar-parches">Aplicar parches</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#servicios">Servicios</a><ul>
+<li><a class="reference internal" href="#habilitar-y-deshabilitar-servicios-en-centos">Habilitar y deshabilitar servicios en centos</a></li>
 </ul>
 </li>
 </ul>
