@@ -27,7 +27,7 @@
     <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <link rel="top" title="documentación de Logbook - 0.1" href="index.html" />
     <link rel="next" title="buildout" href="buildout.html" />
-    <link rel="prev" title="postgres" href="postgres.html" />
+    <link rel="prev" title="Python" href="python.html" />
    
   
   <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
@@ -42,6 +42,32 @@
             
   <div class="section" id="java">
 <h1>Java<a class="headerlink" href="#java" title="Enlazar permanentemente con este título">¶</a></h1>
+<div class="section" id="relacion-rpc-ejb-y-rmi">
+<h2>Relación RPC, EJB y RMI<a class="headerlink" href="#relacion-rpc-ejb-y-rmi" title="Enlazar permanentemente con este título">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li>RPC (remote procedure call) Protocolo que permite crear aplicaciones cliente/servidor basadas en la llamada a procedimientos remotos.</li>
+<li>RMI (remote method invocation) Tecnología que permite hacer llamadas remotas entre objetos de diferentes máquinas virtuales de Java.</li>
+<li>EJB (enterprise Java beans) Tecnología de componentes distribuidos de la empresa Sun que forma parte de la edición empresarial de Java.</li>
+</ul>
+</div></blockquote>
+<p>RMI es una tecnología de objetos distribuidos que es una evolución de RPC, ya que RPC realiza llamadas a funciones remotas, mientras que RMI realiza llamadas a métodos de objetos remotos.</p>
+<p>EJB utiliza internamente el protocolo RMI para realizar las comunicaciones.</p>
+</div>
+<div class="section" id="capa-de-presentacion">
+<h2>Capa de presentación<a class="headerlink" href="#capa-de-presentacion" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Una forma es usar el framework Java Server Faces, donde el controlador será el servlet FacesServlet, las acciones estarán definidas con ManagedBean y las vistas se implementarán mediante Facelets.</p>
+</div>
+<div class="section" id="capa-de-negocio">
+<h2>Capa de negocio<a class="headerlink" href="#capa-de-negocio" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Definir un EJB de sesión sin estado con acceso remoto que sigue el patrón fachada</p>
+<p>Como el acceso puede ser tanto local como remoto, el EJB implementa dos interfaces para estos dos
+tipos de accesos.</p>
+</div>
+<div class="section" id="capa-de-informacion">
+<h2>Capa de información<a class="headerlink" href="#capa-de-informacion" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Java Persistence API (JPA), que nos permitirá gestionar la persistencia y sus relaciones, tiene todas las ventajas de un framework de mapeo y además es un estándar.</p>
+</div>
 <div class="section" id="cambiar-java-del-sistema">
 <h2>Cambiar java del sistema<a class="headerlink" href="#cambiar-java-del-sistema" title="Enlazar permanentemente con este título">¶</a></h2>
 <div class="section" id="te-da-a-elegir-entre-los-que-tienes-instalados">
@@ -53,12 +79,6 @@
 <div class="section" id="cambiar-a-una-version-determinada">
 <h3>Cambiar a una versión determinada:<a class="headerlink" href="#cambiar-a-una-version-determinada" title="Enlazar permanentemente con este título">¶</a></h3>
 <div class="highlight-bash"><div class="highlight"><pre>sudo update-java-alternatives -s java-7-oracle
-</pre></div>
-</div>
-</div>
-<div class="section" id="para-establecer-las-variables-de-entorno">
-<h3>Para establecer las variables de entorno:<a class="headerlink" href="#para-establecer-las-variables-de-entorno" title="Enlazar permanentemente con este título">¶</a></h3>
-<div class="highlight-bash"><div class="highlight"><pre>sudo apt-get install oracle-java8-set-default
 </pre></div>
 </div>
 </div>
@@ -82,10 +102,13 @@
   <h3><a href="index.html">Tabla de Contenidos</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Java</a><ul>
+<li><a class="reference internal" href="#relacion-rpc-ejb-y-rmi">Relación RPC, EJB y RMI</a></li>
+<li><a class="reference internal" href="#capa-de-presentacion">Capa de presentación</a></li>
+<li><a class="reference internal" href="#capa-de-negocio">Capa de negocio</a></li>
+<li><a class="reference internal" href="#capa-de-informacion">Capa de información</a></li>
 <li><a class="reference internal" href="#cambiar-java-del-sistema">Cambiar java del sistema</a><ul>
 <li><a class="reference internal" href="#te-da-a-elegir-entre-los-que-tienes-instalados">Te da a elegir entre los que tienes instalados:</a></li>
 <li><a class="reference internal" href="#cambiar-a-una-version-determinada">Cambiar a una versión determinada:</a></li>
-<li><a class="reference internal" href="#para-establecer-las-variables-de-entorno">Para establecer las variables de entorno:</a></li>
 <li><a class="reference internal" href="#otros-recursos">Otros recursos:</a></li>
 </ul>
 </li>
@@ -96,7 +119,7 @@
 <h3>Related Topics</h3>
 <ul>
   <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="postgres.html" title="capítulo anterior">postgres</a></li>
+      <li>Previous: <a href="python.html" title="capítulo anterior">Python</a></li>
       <li>Next: <a href="buildout.html" title="próximo capítulo">buildout</a></li>
   </ul></li>
 </ul>
