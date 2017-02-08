@@ -2,12 +2,20 @@
 Contabilidad
 ############
 
+Contabilidad básica
+===================
+
+Resumen `lista de reproducción youtube <https://www.youtube.com/playlist?list=PLED37DD5259FEFDEA>`_ de contabilidad básica.
+
+
+Contabilidad y finanzas para dumies
+===================================
 
 Resumen de algunos capítulos `Contabilidad y finanzas para dummies <https://www.amazon.es/Contabilidad-y-finanzas-Para-Dummies-ebook/dp/B00A3OWEMA>`_
 
 
 Capitulo 1 Contabilidad y finanzas
-==================================
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Los dos conceptos fundamentales de la contabilidad son el resultado y el balance.
 
@@ -36,7 +44,7 @@ Proceso de aprendizaje:
 
 
 Capitulo 2 el resultado de la empresa.
-======================================
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Para obtener beneficios el resultado debe ser positivo.
 
@@ -92,7 +100,7 @@ ebitda: beneficion antes de intereses, impuestos y amortizaciones.
 ebit: benificio antes de intereses e impuestos.
 
 Capitulo 3 El patrimonio de la empresa (balance de situación)
-=============================================================
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Elementos que lo integran: activos, pasivos y patrimonio neto.
 
@@ -105,6 +113,7 @@ Activos no corriente (también se llama inmovilizado o fijo): han de permanecer 
 * Inmovilizado financiero: Inversiones financieras a largo plazo.
 
 Activo corriente: activos que deben permanecer menos de 12 meses. Se divide en existencias, realizable y disponible.
+
 * Existencias: mercancías, productos terminados y en curso, materias primas, auxiliares y para consumo, materias para reposición embalajes y envases.
 * Realizable: Bienes y derechos a corto plazo que no son existencias ni disponible. Ejemplos: anticipos al personal, anticipos a proveedores y pagos a cuenta de impuestos.
 * Disponible: dinero en caja y cuentas corrientes.
@@ -133,18 +142,3 @@ Inmovilizado intangible es la marca o prestigio de la empresa cuando la compra o
 Valor contable de la empresa = deudas (o pasivo) - activo = patrimonio neto
 
 La amortización acumulada se refleja en el activo reduciendo el valor del activo al que hace referencia.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

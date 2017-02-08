@@ -30,6 +30,7 @@ Contents:
    django
    lpi
    buildout
+   arduino
    contabilidad
    english
 
