@@ -49,8 +49,7 @@
 <h3>Proyecto 2: Nave espacial<a class="headerlink" href="#proyecto-2-nave-espacial" title="Enlazar permanentemente con este título">¶</a></h3>
 <p>Este proyecto consiste en configurar las clavijas 3,4 y 5 como salidas que encenderán tres leds y la clavija 2 como entrada que recogerá la señal del pulsador.</p>
 <p>Por defecto estará encendido el led verde. Cuando se accione el pulsador, se apagará el led verde, se encenderán y apagaran los leds rojos y se volverá a encender el led verde.</p>
-<img alt="images/02_spaceship_interface.jpg" src="images/02_spaceship_interface.jpg" />
-<p>Ha continuación se muestra el código:</p>
+<div style="position:relative;height:0;padding-bottom:56.25%"><iframe src="https://www.youtube.com/embed/PBki-vbwMAI?ecver=2" width="640" height="360" frameborder="0" style="position:absolute;width:100%;height:100%;left:0" allowfullscreen></iframe></div><p>El código:</p>
 <div class="highlight-python"><div class="highlight"><pre>int switchState = 0;
 //configures the digital pins
 void setup(){
@@ -89,7 +88,61 @@ void loop(){
 </div>
 <div class="section" id="proyecto-3-termometro">
 <h3>Proyecto 3: Termómetro<a class="headerlink" href="#proyecto-3-termometro" title="Enlazar permanentemente con este título">¶</a></h3>
-<p>En construcción.</p>
+<p>Este proyecto consiste en configurar como entrada la clavija analógica A0 que recogerá la señal de un sensor de temperatura y como salidas las clavijas digitales 2, 3 y 4 que encenderán tres leds.</p>
+<p>Por defecto se configurará una temperatura base de 20. Cuando frotemos el sensor, la temperatura subirá encendiendo los leds.</p>
+<p>El video:</p>
+<div style="position:relative;height:0;padding-bottom:56.25%"><iframe src="https://www.youtube.com/embed/ISOyui-lcA8?ecver=2" width="640" height="360" frameborder="0" style="position:absolute;width:100%;height:100%;left:0" allowfullscreen></iframe></div><p>El código:</p>
+<div class="highlight-python"><div class="highlight"><pre>const int sensorPin = A0;
+const float baselineTemp = 20.0;
+
+void setup (){
+  Serial.begin(9600); //open serial port
+
+  for(int pinNumber = 2; pinNumber&lt;5; pinNumber++){
+    pinMode(pinNumber, OUTPUT);
+    digitalWrite(pinNumber, LOW);
+  }
+}
+
+void loop(){
+  int sensorVal = analogRead(sensorPin);
+
+  Serial.print(&quot;Sensor Value: &quot;);
+  Serial.print(sensorVal);
+  
+  // convert the ADC reading to voltage
+  float voltage = (sensorVal/1024.0) * 5.0;
+  Serial.print(&quot;, Volts:&quot;);
+  Serial.print(voltage);
+  Serial.print(&quot;,degrees C:&quot;);
+  
+  // convert the voltage to temerpature in degrees
+  float temperature = (voltage - .5) * 100;
+  Serial.println(temperature);
+  
+  if(temperature &lt; baselineTemp){
+    digitalWrite(2, LOW);
+    digitalWrite(3, LOW);
+    digitalWrite(4, LOW);
+  }else if(temperature &gt;= baselineTemp+2 &amp;&amp;
+    temperature &lt; baselineTemp+4){
+    digitalWrite(2, HIGH);
+    digitalWrite(3, LOW);
+    digitalWrite(4, LOW);
+  }else if(temperature &gt;=baselineTemp+4 &amp;&amp; 
+  temperature &lt; baselineTemp+6){
+    digitalWrite(2, HIGH);
+    digitalWrite(3, HIGH);
+    digitalWrite(4, LOW);
+  }else if(temperature &gt;= baselineTemp+6){
+    digitalWrite(2, HIGH);
+    digitalWrite(3, HIGH);
+    digitalWrite(4, HIGH);
+  }
+  delay(1);
+}
+</pre></div>
+</div>
 </div>
 </div>
 </div>
